@@ -1,0 +1,138 @@
+# Enable GZIP compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/ld+json
+    AddOutputFilterByType DEFLATE font/woff
+    AddOutputFilterByType DEFLATE font/woff2
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Set browser caching
+<IfModule mod_expires.c>
+    ExpiresActive on
+    
+    # Images
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # CSS and JavaScript
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType application/x-javascript "access plus 1 year"
+    
+    # Fonts
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    
+    # HTML and XML
+    ExpiresByType text/html "access plus 1 hour"
+    ExpiresByType text/xml "access plus 1 hour"
+    ExpiresByType application/xml "access plus 1 hour"
+    ExpiresByType application/xhtml+xml "access plus 1 hour"
+    
+    # Other files
+    ExpiresByType text/plain "access plus 1 month"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType application/json "access plus 1 month"
+    ExpiresByType application/ld+json "access plus 1 month"
+</IfModule>
+
+# Enhanced security headers
+<IfModule mod_headers.c>
+    # Security headers
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    
+    # Performance headers
+    Header always set Cache-Control "public, max-age=31536000" "expr=%{REQUEST_URI} =~ m#\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2)$#"
+    Header always set Cache-Control "public, max-age=3600" "expr=%{REQUEST_URI} =~ m#\.(html|htm)$#"
+    
+    # SEO headers
+    Header always set X-Robots-Tag "index, follow"
+    
+    # Remove server signature
+    Header unset Server
+    Header unset X-Powered-By
+</IfModule>
+
+# URL Rewriting and SEO
+RewriteEngine On
+
+# Redirect www to non-www
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Remove trailing slashes
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+# Remove .html extension for better URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# SEO-friendly URLs for local pages
+RewriteRule ^marseille/?$ marseille.html [NC,L]
+RewriteRule ^aix-en-provence/?$ aix-en-provence.html [NC,L]
+RewriteRule ^toulon/?$ toulon.html [NC,L]
+
+# Custom error pages
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+
+# Prevent access to sensitive files
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|conf)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Prevent access to backup files
+<FilesMatch "\.(bak|backup|old|tmp|temp)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Enable Keep-Alive
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>
+
+# Optimize for mobile
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_USER_AGENT} (iPhone|iPod|Android|BlackBerry|IEMobile) [NC]
+    RewriteRule ^$ / [L]
+</IfModule>
+
+# Block bad bots
+RewriteCond %{HTTP_USER_AGENT} (AhrefsBot|SemrushBot|MJ12bot|DotBot|Baiduspider) [NC]
+RewriteRule .* - [F,L]
+
+# Prevent hotlinking
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?alarecherchedesfuite\.fr [NC]
+RewriteCond %{REQUEST_URI} \.(jpg|jpeg|png|gif|webp)$ [NC]
+RewriteRule .* - [F,L]

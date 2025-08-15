@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧪 Test CSS Fallback - Détection Tailwind CDN</title>
+    
+    <!-- Tailwind CDN -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="//cdn.tailwindcss.com">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Script de fallback CSS -->
+    <script src="/css-fallback.js"></script>
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header de test -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-blue-600 mb-4">
+                🧪 Test CSS Fallback
+            </h1>
+            <p class="text-xl text-gray-600">
+                Détection automatique Tailwind CDN + Fallback CSS local
+            </p>
+        </div>
+        
+        <!-- Section de test Tailwind -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+                <i class="fas fa-check-circle text-green-500"></i> Test Tailwind CDN
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-blue-100 p-4 rounded-lg border border-blue-300">
+                    <h3 class="font-semibold text-blue-800 mb-2">
+                        <i class="fas fa-camera text-blue-500"></i> Caméra Thermique
+                    </h3>
+                    <p class="text-sm text-blue-700">Détection précise des fuites cachées</p>
+                </div>
+                <div class="bg-green-100 p-4 rounded-lg border border-green-300">
+                    <h3 class="font-semibold text-green-800 mb-2">
+                        <i class="fas fa-wind text-green-500"></i> Gaz Traceur
+                    </h3>
+                    <p class="text-sm text-green-700">Localisation des fuites dans les murs</p>
+                </div>
+                <div class="bg-purple-100 p-4 rounded-lg border border-purple-300">
+                    <h3 class="font-semibold text-purple-800 mb-2">
+                        <i class="fas fa-microphone text-purple-500"></i> Écoute Acoustique
+                    </h3>
+                    <p class="text-sm text-purple-700">Détection par analyse sonore</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section de test CSS local -->
+        <div class="section">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+                <i class="fas fa-code text-blue-500"></i> Test CSS Local (Fallback)
+            </h2>
+            <p class="text-gray-600 mb-4">
+                Cette section utilise les classes CSS locales si Tailwind CDN n'est pas disponible.
+            </p>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3><span class="icon camera"></span>Caméra Thermique</h3>
+                    <p>Détection précise des fuites cachées dans les murs et sols</p>
+                </div>
+                <div class="service-item">
+                    <h3><span class="icon wind"></span>Gaz Traceur</h3>
+                    <p>Localisation des fuites dans les canalisations et murs</p>
+                </div>
+                <div class="service-item">
+                    <h3><span class="icon microphone"></span>Écoute Acoustique</h3>
+                    <p>Détection par analyse sonore des fuites d'eau</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section contact -->
+        <div class="contact-section">
+            <h2><span class="icon phone"></span>Contact Urgence</h2>
+            <p>Intervention rapide 24/7 - Devis gratuit</p>
+            <a href="tel:0623777801" class="btn btn-primary">
+                <span class="icon phone"></span>
+                06 23 77 78 01
+            </a>
+        </div>
+        
+        <!-- Status du système -->
+        <div class="bg-gray-800 text-white rounded-lg p-6 mt-6">
+            <h3 class="text-xl font-semibold mb-4">
+                <i class="fas fa-info-circle"></i> Statut du Système
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div>
+                    <strong>Tailwind CDN:</strong><br>
+                    <span id="tailwind-status" class="text-yellow-300">⏳ Vérification en cours...</span>
+                </div>
+                <div>
+                    <strong>CSS Local:</strong><br>
+                    <span id="local-status" class="text-yellow-300">⏳ En attente...</span>
+                </div>
+                <div>
+                    <strong>Font Awesome:</strong><br>
+                    <span id="fontawesome-status" class="text-yellow-300">⏳ Vérification en cours...</span>
+                </div>
+                <div>
+                    <strong>Mode:</strong><br>
+                    <span id="mode-status" class="text-yellow-300">⏳ Détection...</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Actions de test -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mt-6">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                <i class="fas fa-tools text-blue-500"></i> Actions de Test
+            </h3>
+            <div class="space-y-4">
+                <button onclick="testTailwind()" class="btn btn-primary">
+                    <i class="fas fa-sync-alt mr-2"></i>
+                    Tester Tailwind CDN
+                </button>
+                <button onclick="forceLocalCSS()" class="btn btn-success">
+                    <i class="fas fa-download mr-2"></i>
+                    Forcer CSS Local
+                </button>
+                <button onclick="checkStatus()" class="btn bg-gray-600 text-white">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    Vérifier Statut
+                </button>
+            </div>
+        </div>
+        
+        <!-- Instructions -->
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-6">
+            <h3 class="text-xl font-semibold text-blue-800 mb-4">
+                <i class="fas fa-lightbulb text-blue-500"></i> Instructions de Test
+            </h3>
+            <div class="text-blue-700 space-y-2">
+                <p><strong>1.</strong> Ouvrez la console du navigateur (F12)</p>
+                <p><strong>2.</strong> Observez les logs du script de fallback</p>
+                <p><strong>3.</strong> Vérifiez que les styles s'appliquent</p>
+                <p><strong>4.</strong> Testez les boutons d'action</p>
+                <p><strong>5.</strong> Vérifiez le statut en temps réel</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Fonctions de test
+        function testTailwind() {
+            console.log('🧪 Test manuel de Tailwind CDN...');
+            const status = window.cssFallback.checkTailwind();
+            updateStatus('tailwind-status', status ? '✅ Fonctionnel' : '❌ Non disponible');
+        }
+        
+        function forceLocalCSS() {
+            console.log('🔄 Forçage du CSS local...');
+            window.cssFallback.applyLocal();
+            updateStatus('local-status', '✅ Activé (forcé)');
+            updateStatus('mode-status', '🔄 CSS Local');
+        }
+        
+        function checkStatus() {
+            console.log('📊 Vérification du statut...');
+            const tailwindLoaded = window.cssFallback.isTailwindLoaded();
+            const fallbackActive = window.cssFallback.isActive();
+            
+            updateStatus('tailwind-status', tailwindLoaded ? '✅ Fonctionnel' : '❌ Non disponible');
+            updateStatus('local-status', fallbackActive ? '✅ Activé' : '❌ Inactif');
+            updateStatus('mode-status', tailwindLoaded ? '🎨 Tailwind CDN' : (fallbackActive ? '🔄 CSS Local' : '⏳ Détection...'));
+        }
+        
+        function updateStatus(elementId, text) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.textContent = text;
+            }
+        }
+        
+        // Vérification automatique du statut
+        setInterval(checkStatus, 2000);
+        
+        // Vérification initiale
+        setTimeout(checkStatus, 1000);
+        
+        // Vérification de Font Awesome
+        setTimeout(() => {
+            const hasFontAwesome = document.querySelector('.fas') && 
+                                 getComputedStyle(document.querySelector('.fas')).fontFamily.includes('FontAwesome');
+            updateStatus('fontawesome-status', hasFontAwesome ? '✅ Fonctionnel' : '❌ Non disponible');
+        }, 2000);
+    </script>
+</body>
+</html>

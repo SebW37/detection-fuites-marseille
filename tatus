@@ -1,0 +1,5 @@
+[33mb498335[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Replace water drop icon with Logo.png in all page footers
+[33m0b74e9d[m Remove Twitter sharing functionality from all pages
+[33m2a77c87[m Remove non-existent business social media links, keep only sharing functionality
+[33mba586ba[m Implement functional social media sharing links for all platforms
+[33m2160096[m Uniformize CSS and top banner across all pages using index page as reference

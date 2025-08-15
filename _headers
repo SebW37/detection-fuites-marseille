@@ -1,0 +1,31 @@
+# Headers de sécurité globaux
+/*
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.tailwindcss.com; img-src * data:; connect-src 'self' https://www.googletagmanager.com
+
+# Headers pour les pages HTML
+*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Headers pour les images (cache long)
+*.png
+  Cache-Control: public, max-age=31536000
+*.jpg
+  Cache-Control: public, max-age=31536000
+*.jpeg
+  Cache-Control: public, max-age=31536000
+*.svg
+  Cache-Control: public, max-age=31536000
+*.webp
+  Cache-Control: public, max-age=31536000
+
+# Headers pour les fichiers XML
+*.xml
+  Cache-Control: public, max-age=86400
+
+# Headers pour robots.txt
+/robots.txt
+  Cache-Control: public, max-age=86400

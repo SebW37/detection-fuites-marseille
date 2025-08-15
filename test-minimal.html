@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Minimal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-4">
+    <h1 class="text-2xl font-bold text-blue-600 text-center">Test Minimal - Tailwind CSS</h1>
+    <div class="bg-white p-4 rounded mt-4">
+        <p class="text-gray-700">Si vous voyez ce texte stylé, Tailwind CSS fonctionne !</p>
+        <div class="bg-green-500 text-white p-2 rounded mt-2">
+            <p class="font-semibold">🎉 Succès !</p>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a href="index.html" class="bg-blue-500 text-white px-4 py-2 rounded">Accueil</a>
+    </div>
+    <script>
+        console.log('✅ Page de test minimale chargée');
+        if (window.tailwind) {
+            console.log('✅ Tailwind CSS disponible');
+        } else {
+            console.log('❌ Tailwind CSS non disponible');
+        }
+    </script>
+</body>
+</html>

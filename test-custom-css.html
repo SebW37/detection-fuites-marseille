@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test CSS Personnalisé</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f3f4f6; 
+        }
+        .container { 
+            max-width: 42rem; 
+            margin: 0 auto; 
+            padding: 1rem; 
+        }
+        .title { 
+            font-size: 1.5rem; 
+            font-weight: bold; 
+            text-align: center; 
+            color: #2563eb; 
+            margin-bottom: 1.5rem; 
+        }
+        .card { 
+            background-color: white; 
+            padding: 1rem; 
+            border-radius: 0.5rem; 
+            margin-top: 1rem; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+        }
+        .text { 
+            color: #374151; 
+            margin-bottom: 1rem; 
+        }
+        .success { 
+            background-color: #10b981; 
+            color: white; 
+            padding: 0.5rem; 
+            border-radius: 0.25rem; 
+            margin-top: 0.5rem; 
+        }
+        .button { 
+            background-color: #3b82f6; 
+            color: white; 
+            padding: 0.5rem 1rem; 
+            border-radius: 0.25rem; 
+            text-decoration: none; 
+            display: inline-block; 
+            margin-top: 1rem; 
+        }
+        .button:hover { 
+            background-color: #2563eb; 
+        }
+        .center { 
+            text-align: center; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Test CSS Personnalisé - Alternative à Tailwind</h1>
+        
+        <div class="card">
+            <h2 style="font-size: 1.25rem; font-weight: 600; color: #059669; margin-bottom: 1rem;">
+                Test CSS Personnalisé
+            </h2>
+            <p class="text">Si vous voyez ce texte stylé avec des couleurs et une mise en page, le CSS personnalisé fonctionne !</p>
+            <div class="success">
+                <p style="font-weight: 600; margin: 0;">🎉 Succès ! CSS personnalisé chargé</p>
+            </div>
+        </div>
+        
+        <div class="center">
+            <a href="index.html" class="button">Retour à l'accueil</a>
+        </div>
+    </div>
+    
+    <script>
+        console.log('✅ Page de test CSS personnalisé chargée');
+        console.log('✅ CSS personnalisé appliqué avec succès');
+    </script>
+</body>
+</html>

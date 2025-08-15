@@ -1,0 +1,5 @@
+[33m1409873[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Fix CSP policy to allow CDN resources (Tailwind, Font Awesome, Google Fonts)
+[33m578f5ac[m Add CSS fallback script to all main pages for automatic Tailwind CDN detection
+[33mb3724f4[m Add hybrid CSS solution: Tailwind CDN + local CSS fallback with automatic detection
+[33mb498335[m Replace water drop icon with Logo.png in all page footers
+[33m0b74e9d[m Remove Twitter sharing functionality from all pages

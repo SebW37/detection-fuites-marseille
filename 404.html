@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Non Trouvée - Recherche de Fuites | 404</title>
+    <meta name="description" content="La page que vous recherchez n'existe pas. Retournez à notre page d'accueil pour nos services de recherche de fuites d'eau à Marseille, Aix-en-Provence et Toulon.">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Page Non Trouvée - Recherche de Fuites">
+    <meta property="og:description" content="Retournez à notre page d'accueil pour nos services de recherche de fuites d'eau.">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+        
+        .container {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            margin: 2rem;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            color: #667eea;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        
+        .error-title {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .error-message {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .services-list {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .services-list h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .services-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .services-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .services-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .services-list li:before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 0.5rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .contact-info p {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info strong {
+            color: #333;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 2rem;
+            }
+            
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Page Non Trouvée</h1>
+        <p class="error-message">
+            Désolé, la page que vous recherchez n'existe pas ou a été déplacée. 
+            Retournez à notre page d'accueil pour découvrir nos services de recherche de fuites d'eau.
+        </p>
+        
+        <div class="services-list">
+            <h3>Nos Services de Recherche de Fuites</h3>
+            <ul>
+                <li>Recherche de fuites d'eau à Marseille</li>
+                <li>Détection de fuites à Aix-en-Provence</li>
+                <li>Localisation de fuites à Toulon</li>
+                <li>Recherche de fuites sous-sol</li>
+                <li>Détection de fuites canalisation</li>
+                <li>Intervention d'urgence 24h/24</li>
+            </ul>
+        </div>
+        
+        <a href="/" class="btn">Retour à l'Accueil</a>
+        <a href="/#contact" class="btn btn-secondary">Nous Contacter</a>
+        
+        <div class="contact-info">
+            <p><strong>Besoin d'aide immédiate ?</strong></p>
+            <p>Appelez-nous au : <strong>06 23 77 78 01</strong></p>
+            <p>Intervention d'urgence disponible 24h/24</p>
+        </div>
+    </div>
+    
+    <script>
+        // Track 404 errors for analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                page_title: '404 - Page Not Found',
+                page_location: window.location.href
+            });
+        }
+        
+        // Auto-redirect after 10 seconds
+        setTimeout(function() {
+            window.location.href = '/';
+        }, 10000);
+    </script>
+</body>
+</html>

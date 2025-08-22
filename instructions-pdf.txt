@@ -1,0 +1,45 @@
+========================================
+  GÉNÉRATION DU PDF - PLAN SEO
+========================================
+
+✅ Le fichier HTML est maintenant ouvert dans votre navigateur !
+
+📋 INSTRUCTIONS POUR GÉNÉRER LE PDF :
+
+1. Dans votre navigateur, appuyez sur :
+   - Windows : Ctrl + P
+   - Mac : Cmd + P
+
+2. Dans la fenêtre d'impression :
+   - Choisissez "Enregistrer en PDF" ou "Save as PDF"
+   - Sélectionnez "A4" comme format de page
+   - Cochez "Arrière-plans" si disponible
+
+3. Cliquez sur "Enregistrer" ou "Save"
+   - Nommez le fichier : "plan-optimisation-seo.pdf"
+   - Choisissez un emplacement sur votre ordinateur
+
+4. Cliquez sur "OK" pour générer le PDF
+
+🎯 RÉSULTAT :
+Vous aurez un PDF professionnel avec :
+- 4 phases d'optimisation SEO détaillées
+- Priorités et délais pour chaque phase
+- Tâches spécifiques avec cases à cocher
+- Recommandations immédiates
+- Design professionnel et lisible
+
+📁 FICHIERS CRÉÉS :
+- seo-optimization-plan.html (fichier source)
+- generate_pdf.py (script Python - optionnel)
+- open_in_browser.bat (ouverture rapide)
+- README-PDF.md (instructions détaillées)
+
+💡 CONSEIL :
+Le PDF généré sera parfait pour :
+- Présentations clients
+- Planification d'équipe
+- Suivi de projet
+- Documentation
+
+========================================

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net https://cdn.tailwindcss.com; script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.googletagmanager.com https://fonts.googleapis.com; frame-src 'self' https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <title>Blog - Détection de Fuites d'Eau Marseille PACA | A LA RECHERCHE DE FUITE</title>
+    <meta name="description" content="📚 Articles et conseils sur la détection de fuites d'eau. Découvrez nos guides, technologies et astuces pour prévenir et détecter les fuites d'eau efficacement.">
+    
+    <!-- Enhanced SEO Meta Tags -->
+    <meta name="keywords" content="blog détection fuite, conseils fuite d'eau, guide fuite d'eau, prévention fuite, technologies détection, caméra thermique, gaz traceur, écoute acoustique, maintenance plomberie, économies eau">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Blog - Détection de Fuites d'Eau Marseille PACA | A LA RECHERCHE DE FUITE">
+    <meta property="og:description" content="📚 Articles et conseils sur la détection de fuites d'eau. Découvrez nos guides, technologies et astuces.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://detection-fuite-marseille.netlify.app/blog.html">
+    <meta property="og:image" content="https://detection-fuite-marseille.netlify.app/Logo.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog - Détection de Fuites d'Eau Marseille PACA">
+    <meta name="twitter:description" content="📚 Articles et conseils sur la détection de fuites d'eau. Découvrez nos guides et technologies.">
+    <meta name="twitter:image" content="https://detection-fuite-marseille.netlify.app/Logo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://detection-fuite-marseille.netlify.app/blog.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Logo.png">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+        .article-card {
+            transition: all 0.3s ease;
+        }
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .article-content {
+            line-height: 1.8;
+        }
+        .article-content h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 1.5rem 0 1rem 0;
+            color: #1f2937;
+        }
+        .article-content h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin: 1.25rem 0 0.75rem 0;
+            color: #374151;
+        }
+        .article-content p {
+            margin-bottom: 1rem;
+        }
+        .article-content ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="gradient-bg text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center text-center">
+            <div class="flex items-center space-x-3">
+                <img src="Logo.png" alt="A LA RECHERCHE DE FUITE - Logo" class="h-12 w-auto">
+                <span class="text-xl font-bold">A LA RECHERCHE DE FUITE</span>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex space-x-8">
+                <a href="index.html" class="text-white hover:text-blue-200 transition">Accueil</a>
+                <a href="index.html#services" class="text-white hover:text-blue-200 transition">Services</a>
+                <a href="index.html#expertise" class="text-white hover:text-blue-200 transition">Expertise</a>
+                <a href="index.html#temoignages" class="text-white hover:text-blue-200 transition">Témoignages</a>
+                <a href="index.html#faq" class="text-white hover:text-blue-200 transition">FAQ</a>
+                <a href="blog.html" class="text-blue-200 font-semibold">Blog</a>
+                <a href="marseille.html" class="text-white hover:text-blue-200 transition">Marseille</a>
+                <a href="aix-en-provence.html" class="text-white hover:text-blue-200 transition">Aix-en-Provence</a>
+                <a href="toulon.html" class="text-white hover:text-blue-200 transition">Toulon</a>
+            </nav>
+            
+            <!-- Contact Button -->
+            <a href="index.html#contact" class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-6 rounded-lg transition">Contact</a>
+            
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden text-white" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="lg:hidden hidden bg-blue-800 py-4" id="mobile-menu">
+            <div class="container mx-auto px-4 flex flex-col space-y-4 text-center">
+                <a href="index.html" class="text-white hover:text-blue-200 transition py-2">Accueil</a>
+                <a href="index.html#services" class="text-white hover:text-blue-200 transition py-2">Services</a>
+                <a href="index.html#expertise" class="text-white hover:text-blue-200 transition py-2">Expertise</a>
+                <a href="index.html#temoignages" class="text-white hover:text-blue-200 transition py-2">Témoignages</a>
+                <a href="index.html#faq" class="text-white hover:text-blue-200 transition py-2">FAQ</a>
+                <a href="blog.html" class="text-blue-200 font-semibold py-2">Blog</a>
+                <a href="marseille.html" class="text-white hover:text-blue-200 transition py-2">Marseille</a>
+                <a href="aix-en-provence.html" class="text-white hover:text-blue-200 transition py-2">Aix-en-Provence</a>
+                <a href="toulon.html" class="text-white hover:text-blue-200 transition py-2">Toulon</a>
+                <a href="index.html#contact" class="text-white hover:text-blue-200 transition py-2">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-white text-gray-800 py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="inline-block bg-blue-100 rounded-full px-4 py-1 mb-4">
+                    <span class="text-sm font-semibold text-blue-800">📚 BLOG</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">Blog Détection de Fuites d'Eau<br> <span class="text-blue-600">A LA RECHERCHE DE FUITE</span></h1>
+                <p class="text-lg md:text-xl mb-8 text-gray-600">Découvrez nos articles, conseils et guides sur la détection de fuites d'eau. Technologies, prévention et solutions pour protéger votre propriété.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-center transition flex items-center justify-center">
+                        <i class="fas fa-envelope mr-2"></i> Demander un devis
+                    </a>
+                    <a href="tel:+33623777801" class="bg-blue-100 hover:bg-blue-200 text-blue-700 font-bold py-3 px-6 rounded-lg text-center transition flex items-center justify-center">
+                        <i class="fas fa-phone mr-2"></i> 06 23 77 78 01
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Articles Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <div class="text-center mb-12">
+                <span class="text-blue-600 font-semibold">NOS ARTICLES</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Conseils et Guides sur la Détection de Fuites d'Eau</h2>
+                <p class="max-w-2xl mx-auto mt-4 text-gray-600">Retrouvez tous nos articles sur la détection de fuites et l'entretien de vos installations</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <div class="article-card bg-white rounded-xl overflow-hidden shadow-sm">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-blue-700"></div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span>15 Juin 2023</span>
+                            <span class="mx-2">•</span>
+                            <i class="far fa-clock mr-2"></i>
+                            <span>5 min</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Les signes avant-coureurs d'une fuite d'eau dans votre maison</h3>
+                        <p class="text-gray-600 mb-4">Découvrez les indices qui révèlent une fuite d'eau avant qu'elle ne devienne un problème majeur dans votre logement.</p>
+                        <button onclick="showArticle('article1')" class="text-blue-600 font-semibold hover:text-blue-800 transition flex items-center">
+                            Lire l'article
+                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Article 2 -->
+                <div class="article-card bg-white rounded-xl overflow-hidden shadow-sm">
+                    <div class="h-48 bg-gradient-to-r from-blue-600 to-purple-600"></div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span>8 Mai 2023</span>
+                            <span class="mx-2">•</span>
+                            <i class="far fa-clock mr-2"></i>
+                            <span>7 min</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Technologies de détection modernes : comment ça marche ?</h3>
+                        <p class="text-gray-600 mb-4">Découvrez les outils high-tech que nous utilisons pour localiser vos fuites sans dégâts.</p>
+                        <button onclick="showArticle('article2')" class="text-blue-600 font-semibold hover:text-blue-800 transition flex items-center">
+                            Lire l'article
+                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Article 3 -->
+                <div class="article-card bg-white rounded-xl overflow-hidden shadow-sm">
+                    <div class="h-48 bg-gradient-to-r from-green-500 to-teal-600"></div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span>22 Avril 2023</span>
+                            <span class="mx-2">•</span>
+                            <i class="far fa-clock mr-2"></i>
+                            <span>6 min</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Fuites d'eau dans les immeubles : comment les détecter efficacement ?</h3>
+                        <p class="text-gray-600 mb-4">Guide complet pour identifier les fuites dans les copropriétés et immeubles.</p>
+                        <button onclick="showArticle('article3')" class="text-blue-600 font-semibold hover:text-blue-800 transition flex items-center">
+                            Lire l'article
+                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Article 4 -->
+                <div class="article-card bg-white rounded-xl overflow-hidden shadow-sm">
+                    <div class="h-48 bg-gradient-to-r from-red-500 to-orange-500"></div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span>5 Avril 2023</span>
+                            <span class="mx-2">•</span>
+                            <i class="far fa-clock mr-2"></i>
+                            <span>4 min</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Prévention des fuites : 5 conseils essentiels</h3>
+                        <p class="text-gray-600 mb-4">Adoptez les bonnes pratiques pour éviter les désagréments et coûts liés aux fuites.</p>
+                        <button onclick="showArticle('article4')" class="text-blue-600 font-semibold hover:text-blue-800 transition flex items-center">
+                            Lire l'article
+                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Article 5 -->
+                <div class="article-card bg-white rounded-xl overflow-hidden shadow-sm">
+                    <div class="h-48 bg-gradient-to-r from-indigo-500 to-purple-700"></div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span>18 Mars 2023</span>
+                            <span class="mx-2">•</span>
+                            <i class="far fa-clock mr-2"></i>
+                            <span>8 min</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Coût d'une fuite d'eau : comment limiter les dégâts ?</h3>
+                        <p class="text-gray-600 mb-4">Comprenez l'impact financier d'une fuite non détectée et comment l'éviter.</p>
+                        <button onclick="showArticle('article5')" class="text-blue-600 font-semibold hover:text-blue-800 transition flex items-center">
+                            Lire l'article
+                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Article 6 -->
+                <div class="article-card bg-white rounded-xl overflow-hidden shadow-sm">
+                    <div class="h-48 bg-gradient-to-r from-yellow-500 to-red-600"></div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span>1 Mars 2023</span>
+                            <span class="mx-2">•</span>
+                            <i class="far fa-clock mr-2"></i>
+                            <span>6 min</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Urgence fuite d'eau : que faire en premier ?</h3>
+                        <p class="text-gray-600 mb-4">Procédure d'urgence pour minimiser les dégâts en cas de fuite importante.</p>
+                        <button onclick="showArticle('article6')" class="text-blue-600 font-semibold hover:text-blue-800 transition flex items-center">
+                            Lire l'article
+                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Page -->
+    <section id="article-page" class="py-16 bg-white hidden">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <!-- Back to blog link -->
+                <div class="mb-8">
+                    <button onclick="hideArticle()" class="inline-flex items-center text-blue-600 hover:text-blue-800 transition">
+                        <i class="fas fa-arrow-left mr-2"></i> Retour au blog
+                    </button>
+                </div>
+                
+                <!-- Article header -->
+                <header class="mb-12">
+                    <div id="article-image" class="h-64 rounded-xl mb-6"></div>
+                    
+                    <div class="flex items-center text-sm text-gray-500 mb-4">
+                        <i class="far fa-calendar mr-2"></i>
+                        <span id="article-date"></span>
+                        <span class="mx-2">•</span>
+                        <i class="far fa-clock mr-2"></i>
+                        <span id="article-duration"></span>
+                        <span class="mx-2">•</span>
+                        <i class="fas fa-user mr-2"></i>
+                        <span>Équipe ALARECHERCHES</span>
+                    </div>
+                    
+                    <h1 id="article-title" class="text-3xl md:text-4xl font-bold text-gray-900 mb-4"></h1>
+                    
+                    <div id="article-tags" class="flex flex-wrap gap-2 mb-6">
+                    </div>
+                    
+                    <p id="article-description" class="text-xl text-gray-600 italic"></p>
+                </header>
+                
+                <!-- Article content -->
+                <div id="article-content" class="article-content text-gray-800">
+                </div>
+                
+                <!-- Article footer -->
+                <footer class="mt-12 pt-8 border-t border-gray-200">
+                    <div class="flex flex-wrap justify-between items-center">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="font-bold text-gray-900 mb-2">Partager cet article</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-blue-600 hover:text-blue-800 text-xl">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="#" class="text-blue-400 hover:text-blue-600 text-xl">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="text-pink-500 hover:text-pink-700 text-xl">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="text-blue-700 hover:text-blue-900 text-xl">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <a href="index.html#contact" class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition">
+                                <i class="fas fa-envelope mr-2"></i> Contacter un expert
+                            </a>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 gradient-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Besoin d'une intervention rapide ?</h2>
+            <p class="max-w-2xl mx-auto mb-8 text-lg">Nos experts sont disponibles 24/7 pour diagnostiquer et localiser vos fuites d'eau avec précision.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="tel:+33623777801" class="bg-white hover:bg-gray-100 text-blue-600 font-bold py-3 px-8 rounded-lg transition flex items-center justify-center">
+                    <i class="fas fa-phone mr-2"></i> 06 23 77 78 01
+                </a>
+                <a href="index.html#contact" class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-lg transition flex items-center justify-center">
+                    <i class="fas fa-envelope mr-2"></i> Contact par email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <div class="bg-white p-2 rounded-full mr-2">
+                            <i class="fas fa-tint text-blue-600"></i>
+                        </div>
+                        A LA RECHERCHE DE FUITE
+                    </h3>
+                    <p class="mb-4 text-gray-400 text-center">Experts en détection de fuites d'eau pour particuliers, professionnels et collectivités dans la région PACA.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#services" class="text-gray-400 hover:text-white transition">Détection fuites particuliers</a></li>
+                        <li><a href="index.html#services" class="text-gray-400 hover:text-white transition">Recherche fuites professionnels</a></li>
+                        <li><a href="index.html#services" class="text-gray-400 hover:text-white transition">Détection fuites collectivités</a></li>
+                        <li><a href="index.html#services" class="text-gray-400 hover:text-white transition">Urgences 24/7</a></li>
+                        <li><a href="index.html#contact" class="text-gray-400 hover:text-white transition">Devis gratuit</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Zones d'intervention</h3>
+                    <ul class="space-y-2">
+                        <li><a href="marseille.html" class="text-gray-400 hover:text-white transition">Marseille</a></li>
+                        <li><a href="aix-en-provence.html" class="text-gray-400 hover:text-white transition">Aix-en-Provence</a></li>
+                        <li><a href="toulon.html" class="text-gray-400 hover:text-white transition">Toulon</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Var</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Provence-Alpes-Côte d'Azur</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact rapide</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2 text-gray-400"></i>
+                            <a href="tel:+33623777801" class="text-gray-400 hover:text-white transition">06 23 77 78 01</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-gray-400"></i>
+                            <a href="mailto:alarecherchedelafuite@gmail.com" class="text-gray-400 hover:text-white transition">alarecherchedelafuite@gmail.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-2 mt-1 text-gray-400"></i>
+                            <span class="text-gray-400">Bouches du Rhône & Var</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400 text-sm">
+                <p>© 2023 A LA RECHERCHE DE FUITE - Tous droits réservés | <a href="#" class="hover:text-white transition">Mentions légales</a> | <a href="#" class="hover:text-white transition">Politique de confidentialité</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Article Display -->
+    <script>
+        const articles = {
+            article1: {
+                title: "Les signes avant-coureurs d'une fuite d'eau dans votre maison",
+                date: "15 Juin 2023",
+                duration: "5 min",
+                description: "Découvrez les indices qui révèlent une fuite d'eau avant qu'elle ne devienne un problème majeur dans votre logement.",
+                image: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
+                tags: ["Prévention", "Particuliers", "Signes d'alerte"],
+                content: `
+                    <h2>Introduction</h2>
+                    <p>Une fuite d'eau peut causer des dégâts considérables si elle n'est pas détectée à temps. Voici les signes qui doivent vous alerter.</p>
+                    
+                    <h3>1. Augmentation anormale de votre facture d'eau</h3>
+                    <p>Si votre consommation d'eau augmente soudainement sans raison apparente, c'est souvent le premier signe d'une fuite.</p>
+                    
+                    <h3>2. Bruit d'eau constant</h3>
+                    <p>Entendez-vous un bruit d'eau même quand tous vos robinets sont fermés ? C'est un indicateur clair.</p>
+                    
+                    <h3>3. Taches d'humidité</h3>
+                    <p>Les taches sur les murs, plafonds ou sols peuvent révéler une fuite cachée.</p>
+                    
+                    <h3>4. Moquette ou carrelage humide</h3>
+                    <p>Un sol humide sans raison apparente est souvent le signe d'une fuite souterraine.</p>
+                    
+                    <h3>5. Baisse de pression</h3>
+                    <p>Une pression d'eau qui diminue peut indiquer une fuite dans vos canalisations.</p>
+                    
+                    <h2>Que faire en cas de suspicion ?</h2>
+                    <p>Contactez immédiatement nos experts en détection de fuites. Plus tôt nous intervenons, moins les dégâts seront importants.</p>
+                `
+            },
+            article2: {
+                title: "Technologies de détection modernes : comment ça marche ?",
+                date: "8 Mai 2023",
+                duration: "7 min",
+                description: "Découvrez les outils high-tech que nous utilisons pour localiser vos fuites sans dégâts.",
+                image: "linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%)",
+                tags: ["Technologies", "Caméra thermique", "Gaz traceur"],
+                content: `
+                    <h2>Les technologies au service de la détection</h2>
+                    <p>Nous utilisons les dernières innovations pour localiser précisément vos fuites sans endommager vos installations.</p>
+                    
+                    <h3>1. Caméra thermique</h3>
+                    <p>Cette technologie détecte les différences de température révélant des fuites invisibles à l'œil nu.</p>
+                    
+                    <h3>2. Gaz traceur</h3>
+                    <p>L'injection d'un gaz léger (hélium ou hydrogène) permet de localiser les micro-fuites avec une précision millimétrique.</p>
+                    
+                    <h3>3. Écoute acoustique</h3>
+                    <p>Nos équipements amplifient les sons de fuites même dans les murs les plus épais.</p>
+                    
+                    <h3>4. Caméra endoscopique</h3>
+                    <p>Pour inspecter les canalisations sans les ouvrir.</p>
+                    
+                    <h2>Avantages de ces technologies</h2>
+                    <ul>
+                        <li>Détection non destructive</li>
+                        <li>Précision millimétrique</li>
+                        <li>Résultats immédiats</li>
+                        <li>Pas de travaux inutiles</li>
+                    </ul>
+                `
+            },
+            article3: {
+                title: "Fuites d'eau dans les immeubles : comment les détecter efficacement ?",
+                date: "22 Avril 2023",
+                duration: "6 min",
+                description: "Guide complet pour identifier les fuites dans les copropriétés et immeubles.",
+                image: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
+                tags: ["Immeubles", "Copropriétés", "Professionnels"],
+                content: `
+                    <h2>Détection en milieu collectif</h2>
+                    <p>Les immeubles présentent des défis particuliers pour la détection de fuites d'eau.</p>
+                    
+                    <h3>1. Cartographie des réseaux</h3>
+                    <p>Nous commençons par établir une cartographie complète de vos installations.</p>
+                    
+                    <h3>2. Inspection systématique</h3>
+                    <p>Chaque appartement et espace commun est inspecté méthodiquement.</p>
+                    
+                    <h3>3. Technologies adaptées</h3>
+                    <p>Nous utilisons des équipements spécialement conçus pour les espaces collectifs.</p>
+                    
+                    <h3>4. Rapport détaillé</h3>
+                    <p>Un rapport complet est remis à la copropriété avec préconisations.</p>
+                    
+                    <h2>Spécificités des immeubles</h2>
+                    <ul>
+                        <li>Réseaux complexes</li>
+                        <li>Accès restreint</li>
+                        <li>Coordination avec les résidents</li>
+                        <li>Gestion des parties communes</li>
+                    </ul>
+                `
+            },
+            article4: {
+                title: "Prévention des fuites : 5 conseils essentiels",
+                date: "5 Avril 2023",
+                duration: "4 min",
+                description: "Adoptez les bonnes pratiques pour éviter les désagréments et coûts liés aux fuites.",
+                image: "linear-gradient(135deg, #f97316 0%, #ea580c 100%)",
+                tags: ["Prévention", "Entretien", "Conseils"],
+                content: `
+                    <h2>Prévenir plutôt que guérir</h2>
+                    <p>La prévention est la meilleure façon d'éviter les fuites d'eau et leurs conséquences.</p>
+                    
+                    <h3>1. Vérifiez régulièrement vos installations</h3>
+                    <p>Inspectez vos robinets, tuyaux et appareils au moins une fois par mois.</p>
+                    
+                    <h3>2. Surveillez votre compteur d'eau</h3>
+                    <p>Notez vos consommations et alertez-vous en cas d'augmentation anormale.</p>
+                    
+                    <h3>3. Entretenez vos canalisations</h3>
+                    <p>Nettoyez régulièrement vos éviers et douches pour éviter les bouchons.</p>
+                    
+                    <h3>4. Protégez vos installations du gel</h3>
+                    <p>En hiver, isolez vos tuyaux exposés au froid.</p>
+                    
+                    <h3>5. Faites appel à des professionnels</h3>
+                    <p>Pour toute intervention, privilégiez des experts certifiés.</p>
+                    
+                    <h2>Bénéfices de la prévention</h2>
+                    <ul>
+                        <li>Économies sur vos factures</li>
+                        <li>Préservation de votre bien</li>
+                        <li>Moins de stress</li>
+                        <li>Interventions préventives moins coûteuses</li>
+                    </ul>
+                `
+            },
+            article5: {
+                title: "Coût d'une fuite d'eau : comment limiter les dégâts ?",
+                date: "18 Mars 2023",
+                duration: "8 min",
+                description: "Comprenez l'impact financier d'une fuite non détectée et comment l'éviter.",
+                image: "linear-gradient(135deg, #6366f1 0%, #4338ca 100%)",
+                tags: ["Coûts", "Économies", "Dégâts"],
+                content: `
+                    <h2>L'impact financier des fuites d'eau</h2>
+                    <p>Une fuite d'eau peut coûter très cher si elle n'est pas détectée rapidement.</p>
+                    
+                    <h3>1. Coûts directs</h3>
+                    <p>La facture d'eau peut augmenter de 20% à 200% selon l'importance de la fuite.</p>
+                    
+                    <h3>2. Coûts de réparation</h3>
+                    <p>Les dégâts matériels peuvent nécessiter des travaux coûteux.</p>
+                    
+                    <h3>3. Coûts indirects</h3>
+                    <p>Perte de valeur du bien, frais d'assurance, etc.</p>
+                    
+                    <h2>Comment limiter les coûts ?</h2>
+                    <ul>
+                        <li>Détection précoce</li>
+                        <li>Intervention rapide</li>
+                        <li>Maintenance préventive</li>
+                        <li>Assurance adaptée</li>
+                    </ul>
+                    
+                    <h3>Investissement rentable</h3>
+                    <p>Une détection de fuite coûte entre 150€ et 400€, mais peut vous faire économiser des milliers d'euros.</p>
+                `
+            },
+            article6: {
+                title: "Urgence fuite d'eau : que faire en premier ?",
+                date: "1 Mars 2023",
+                duration: "6 min",
+                description: "Procédure d'urgence pour minimiser les dégâts en cas de fuite importante.",
+                image: "linear-gradient(135deg, #f59e0b 0%, #d97706 100%)",
+                tags: ["Urgence", "Procédure", "Sécurité"],
+                content: `
+                    <h2>Procédure d'urgence</h2>
+                    <p>En cas de fuite d'eau importante, voici les étapes à suivre immédiatement.</p>
+                    
+                    <h3>1. Coupez l'eau</h3>
+                    <p>Localisez et fermez le robinet d'arrêt principal de votre installation.</p>
+                    
+                    <h3>2. Sécurisez les lieux</h3>
+                    <p>Éloignez les objets de valeur et coupez l'électricité si nécessaire.</p>
+                    
+                    <h3>3. Contactez les urgences</h3>
+                    <p>Appelez immédiatement nos équipes d'urgence disponibles 24/7.</p>
+                    
+                    <h3>4. Documentez les dégâts</h3>
+                    <p>Prenez des photos pour votre assurance.</p>
+                    
+                    <h3>5. Ne tentez pas de réparer</h3>
+                    <p>Laissez les professionnels intervenir pour éviter d'aggraver la situation.</p>
+                    
+                    <h2>Numéros d'urgence</h2>
+                    <p>Nos équipes interviennent en urgence 24h/24 et 7j/7 : <strong>06 23 77 78 01</strong></p>
+                `
+            }
+        };
+
+        function showArticle(articleId) {
+            const article = articles[articleId];
+            if (!article) return;
+
+            // Update article content
+            document.getElementById('article-title').textContent = article.title;
+            document.getElementById('article-date').textContent = article.date;
+            document.getElementById('article-duration').textContent = article.duration;
+            document.getElementById('article-description').textContent = article.description;
+            document.getElementById('article-image').style.background = article.image;
+            
+            // Update tags
+            const tagsContainer = document.getElementById('article-tags');
+            tagsContainer.innerHTML = '';
+            article.tags.forEach(tag => {
+                const tagElement = document.createElement('span');
+                tagElement.className = 'bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full';
+                tagElement.textContent = tag;
+                tagsContainer.appendChild(tagElement);
+            });
+            
+            // Update content
+            document.getElementById('article-content').innerHTML = article.content;
+            
+            // Show article page
+            document.getElementById('article-page').classList.remove('hidden');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function hideArticle() {
+            document.getElementById('article-page').classList.add('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

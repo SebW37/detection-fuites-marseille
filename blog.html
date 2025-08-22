@@ -82,6 +82,28 @@
         .article-content li {
             margin-bottom: 0.5rem;
         }
+        
+        /* Social sharing buttons */
+        .social-share-btn {
+            transition: all 0.3s ease;
+            transform: scale(1);
+        }
+        
+        .social-share-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .social-share-btn:active {
+            transform: scale(0.95);
+        }
+        
+        /* Responsive social sharing */
+        @media (max-width: 768px) {
+            .social-share-btn {
+                font-size: 1.25rem;
+                padding: 0.5rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -327,23 +349,23 @@
                 <!-- Article footer -->
                 <footer class="mt-12 pt-8 border-t border-gray-200">
                     <div class="flex flex-wrap justify-between items-center">
-                        <div class="mb-4 md:mb-0">
-                            <h3 class="font-bold text-gray-900 mb-2">Partager cet article</h3>
-                            <div class="flex space-x-4">
-                                <a href="#" class="text-blue-600 hover:text-blue-800 text-xl">
-                                    <i class="fab fa-facebook"></i>
-                                </a>
-                                <a href="#" class="text-blue-400 hover:text-blue-600 text-xl">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#" class="text-pink-500 hover:text-pink-700 text-xl">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="#" class="text-blue-700 hover:text-blue-900 text-xl">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
-                            </div>
-                        </div>
+                                                 <div class="mb-4 md:mb-0">
+                             <h3 class="font-bold text-gray-900 mb-2">Partager cet article</h3>
+                             <div class="flex space-x-4">
+                                 <a href="#" onclick="shareOnFacebook()" class="social-share-btn text-blue-600 hover:text-blue-800 text-xl transition-colors cursor-pointer" title="Partager sur Facebook">
+                                     <i class="fab fa-facebook"></i>
+                                 </a>
+                                 <a href="#" onclick="shareOnTwitter()" class="social-share-btn text-blue-400 hover:text-blue-600 text-xl transition-colors cursor-pointer" title="Partager sur Twitter">
+                                     <i class="fab fa-twitter"></i>
+                                 </a>
+                                 <a href="#" onclick="shareOnLinkedIn()" class="social-share-btn text-blue-700 hover:text-blue-900 text-xl transition-colors cursor-pointer" title="Partager sur LinkedIn">
+                                     <i class="fab fa-linkedin"></i>
+                                 </a>
+                                 <a href="#" onclick="copyLink()" class="social-share-btn text-gray-600 hover:text-gray-800 text-xl transition-colors cursor-pointer" title="Copier le lien">
+                                     <i class="fas fa-link"></i>
+                                 </a>
+                             </div>
+                         </div>
                         
                         <div>
                             <a href="index.html#contact" class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition">
@@ -673,6 +695,89 @@
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
+        }
+
+        // Social Media Sharing Functions
+        function shareOnLinkedIn() {
+            const currentArticle = getCurrentArticle();
+            if (!currentArticle) return;
+            
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(currentArticle.title);
+            const summary = encodeURIComponent(currentArticle.description);
+            const source = encodeURIComponent('A LA RECHERCHE DE FUITE');
+            
+            const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}&summary=${summary}&source=${source}`;
+            window.open(linkedinUrl, '_blank', 'width=600,height=400');
+        }
+
+        function shareOnFacebook() {
+            const currentArticle = getCurrentArticle();
+            if (!currentArticle) return;
+            
+            const url = encodeURIComponent(window.location.href);
+            const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            window.open(facebookUrl, '_blank', 'width=600,height=400');
+        }
+
+        function shareOnTwitter() {
+            const currentArticle = getCurrentArticle();
+            if (!currentArticle) return;
+            
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(currentArticle.title);
+            const twitterUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+            window.open(twitterUrl, '_blank', 'width=600,height=400');
+        }
+
+        function copyLink() {
+            const currentArticle = getCurrentArticle();
+            if (!currentArticle) return;
+            
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                // Show success message
+                const linkButton = document.querySelector('[onclick="copyLink()"]');
+                const originalIcon = linkButton.innerHTML;
+                linkButton.innerHTML = '<i class="fas fa-check"></i>';
+                linkButton.classList.add('text-green-600');
+                
+                setTimeout(() => {
+                    linkButton.innerHTML = originalIcon;
+                    linkButton.classList.remove('text-green-600');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy link: ', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = url;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                // Show success message
+                const linkButton = document.querySelector('[onclick="copyLink()"]');
+                const originalIcon = linkButton.innerHTML;
+                linkButton.innerHTML = '<i class="fas fa-check"></i>';
+                linkButton.classList.add('text-green-600');
+                
+                setTimeout(() => {
+                    linkButton.innerHTML = originalIcon;
+                    linkButton.classList.remove('text-green-600');
+                }, 2000);
+            });
+        }
+
+        function getCurrentArticle() {
+            // Find which article is currently displayed
+            const articleTitle = document.getElementById('article-title').textContent;
+            for (const [id, article] of Object.entries(articles)) {
+                if (article.title === articleTitle) {
+                    return article;
+                }
+            }
+            return null;
         }
     </script>
 </body>

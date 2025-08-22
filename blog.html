@@ -44,6 +44,9 @@
     
     <!-- Custom CSS -->
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         .gradient-bg {
             background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
         }
@@ -658,8 +661,9 @@
             // Show article page
             document.getElementById('article-page').classList.remove('hidden');
             
-            // Scroll to top
-            window.scrollTo(0, 0);
+            // Scroll smoothly to the article section
+            const articleSection = document.getElementById('article-page');
+            articleSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function hideArticle() {

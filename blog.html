@@ -34,65 +34,7 @@
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5GLSS2VK');
-        // ============================================
-        // SYSTÈME DE BASCULE DE THÈME CLAIR/SOMBRE
-        // ============================================
-        (function() {
-            const themeToggle = document.getElementById('theme-toggle');
-            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-            const themeIcon = document.getElementById('theme-icon');
-            const themeIconMobile = document.getElementById('theme-icon-mobile');
-            const html = document.documentElement;
-            
-            // Récupérer le thème sauvegardé ou utiliser le thème clair par défaut
-            const currentTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-theme', currentTheme);
-            
-            // Fonction pour mettre à jour les icônes
-            function updateIcons(theme) {
-                if (theme === 'dark') {
-                    if (themeIcon) themeIcon.className = 'fas fa-sun';
-                    if (themeIconMobile) themeIconMobile.className = 'fas fa-sun mr-2';
-                } else {
-                    if (themeIcon) themeIcon.className = 'fas fa-moon';
-                    if (themeIconMobile) themeIconMobile.className = 'fas fa-moon mr-2';
-                }
-            }
-            
-            // Initialiser les icônes au chargement
-            updateIcons(currentTheme);
-            
-            // Fonction pour basculer le thème
-            function toggleTheme() {
-                const currentTheme = html.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateIcons(newTheme);
-            }
-            
-            // Ajouter les event listeners
-            if (themeToggle) {
-                themeToggle.addEventListener('click', toggleTheme);
-            }
-            
-            if (themeToggleMobile) {
-                themeToggleMobile.addEventListener('click', toggleTheme);
-            }
-        })();
-
-    
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
+})(window,document,'script','dataLayer','GTM-5GLSS2VK');</script>
 
     </script>
     <!-- End Google Tag Manager -->
@@ -630,6 +572,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border-radius: 9999px;
             font-weight: 500;
         }
+
+        /* Amélioration du contour des inputs en mode sombre */
+        [data-theme="dark"] input[type="text"],
+        [data-theme="dark"] input[type="tel"],
+        [data-theme="dark"] input[type="email"],
+        [data-theme="dark"] textarea,
+        [data-theme="dark"] select {
+            border: 2px solid var(--logo-turquoise) !important;
+            box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.3) !important;
+        }
+        
+        [data-theme="dark"] input[type="text"]:focus,
+        [data-theme="dark"] input[type="tel"]:focus,
+        [data-theme="dark"] input[type="email"]:focus,
+        [data-theme="dark"] textarea:focus,
+        [data-theme="dark"] select:focus {
+            border-color: var(--logo-turquoise) !important;
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.3), 0 0 10px rgba(0, 212, 255, 0.5) !important;
+            outline: none !important;
+        }
+
     </style>
 </head>
 <body class="text-gray-800 bg-gray-50">
@@ -641,7 +604,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header class="gradient-bg text-white sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center text-center">
             <div class="flex items-center space-x-3">
-                <img src="Logo.png" alt="A LA RECHERCHE DE LA FUITE - Logo" class="h-12 w-auto">
+                <img src="Logo.png" alt="A LA RECHERCHE DE LA FUITE - Logo" class="h-12 w-auto bg-white p-1 rounded-lg shadow-sm">
                 <h1 class="text-xl md:text-2xl font-bold">A LA RECHERCHE<br class="md:hidden"> DE LA FUITE</h1>
             </div>
             <nav class="hidden lg:flex space-x-8">
@@ -1390,6 +1353,55 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
             return null;
         }
+    
+        // ============================================
+        // SYSTÈME DE BASCULE DE THÈME CLAIR/SOMBRE
+        // ============================================
+        (function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+            const themeIcon = document.getElementById('theme-icon');
+            const themeIconMobile = document.getElementById('theme-icon-mobile');
+            const html = document.documentElement;
+            
+            // Récupérer le thème sauvegardé ou utiliser le thème clair par défaut
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', currentTheme);
+            
+            // Fonction pour mettre à jour les icônes
+            function updateIcons(theme) {
+                if (theme === 'dark') {
+                    if (themeIcon) themeIcon.className = 'fas fa-sun';
+                    if (themeIconMobile) themeIconMobile.className = 'fas fa-sun mr-2';
+                } else {
+                    if (themeIcon) themeIcon.className = 'fas fa-moon';
+                    if (themeIconMobile) themeIconMobile.className = 'fas fa-moon mr-2';
+                }
+            }
+            
+            // Initialiser les icônes au chargement
+            updateIcons(currentTheme);
+            
+            // Fonction pour basculer le thème
+            function toggleTheme() {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcons(newTheme);
+            }
+            
+            // Ajouter les event listeners
+            if (themeToggle) {
+                themeToggle.addEventListener('click', toggleTheme);
+            }
+            
+            if (themeToggleMobile) {
+                themeToggleMobile.addEventListener('click', toggleTheme);
+            }
+        })();
+
     </script>
 </body>
 </html>

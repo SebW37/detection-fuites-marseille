@@ -623,7 +623,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         [data-theme="dark"] select {
             background-color: var(--bg-secondary) !important;
             color: var(--text-primary) !important;
-            border-color: var(--border-color) !important;
+            border: 2px solid var(--logo-turquoise) !important;
+            box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.3) !important;
+        }
+        
+        [data-theme="dark"] input:focus,
+        [data-theme="dark"] textarea:focus,
+        [data-theme="dark"] select:focus {
+            border-color: var(--logo-turquoise) !important;
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.3), 0 0 10px rgba(0, 212, 255, 0.5) !important;
+            outline: none !important;
         }
         
         [data-theme="dark"] footer {
@@ -782,7 +791,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header class="gradient-bg text-white sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center text-center">
             <div class="flex items-center space-x-3">
-                <img src="Logo.png" alt="A LA RECHERCHE DE LA FUITE - Logo" class="h-12 w-auto">
+                <img src="Logo.png" alt="A LA RECHERCHE DE LA FUITE - Logo" class="h-12 w-auto bg-white p-1 rounded-lg shadow-sm">
                 <h1 class="text-xl md:text-2xl font-bold">A LA RECHERCHE<br class="md:hidden"> DE LA FUITE</h1>
             </div>
             <nav class="hidden lg:flex space-x-8">

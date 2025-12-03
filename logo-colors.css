@@ -1,0 +1,273 @@
+/* ============================================
+   SYSTÈME DE COULEURS - A LA RECHERCHE DE LA FUITE
+   Basé sur le logo de l'entreprise
+   ============================================ */
+
+/* Variables de couleurs principales extraites du logo */
+:root {
+    --logo-dark-blue: #0d1b2a;      /* Bleu foncé - fond du cercle */
+    --logo-blue: #1a3a5c;           /* Bleu moyen - cercles concentriques */
+    --logo-turquoise: #00d4ff;      /* Turquoise - goutte d'eau principale */
+    --logo-cyan: #40e0d0;           /* Cyan - base de la goutte */
+    --logo-light-cyan: #00e5ff;     /* Cyan lumineux - texte et accents */
+    --logo-accent: #0096c7;         /* Bleu accent - transitions */
+    --logo-dark-turquoise: #00b4d8; /* Turquoise foncé - nuances */
+}
+
+/* ============================================
+   CLASSES DE COULEUR DE TEXTE
+   ============================================ */
+.logo-color-primary { color: var(--logo-turquoise); }
+.logo-color-secondary { color: var(--logo-cyan); }
+.logo-color-accent { color: var(--logo-accent); }
+.logo-color-dark { color: var(--logo-blue); }
+.logo-color-light { color: var(--logo-light-cyan); }
+
+/* ============================================
+   CLASSES DE COULEUR DE FOND
+   ============================================ */
+.logo-bg-primary { background-color: var(--logo-turquoise); }
+.logo-bg-secondary { background-color: var(--logo-cyan); }
+.logo-bg-accent { background-color: var(--logo-accent); }
+.logo-bg-dark { background-color: var(--logo-blue); }
+.logo-bg-light { background-color: var(--logo-light-cyan); }
+
+/* ============================================
+   DÉGRADÉS BASÉS SUR LE LOGO
+   ============================================ */
+.logo-bg-gradient {
+    background: linear-gradient(135deg, var(--logo-blue) 0%, var(--logo-accent) 50%, var(--logo-turquoise) 100%);
+}
+
+.logo-bg-gradient-horizontal {
+    background: linear-gradient(90deg, var(--logo-blue) 0%, var(--logo-accent) 50%, var(--logo-turquoise) 100%);
+}
+
+.logo-bg-gradient-vertical {
+    background: linear-gradient(180deg, var(--logo-blue) 0%, var(--logo-accent) 50%, var(--logo-turquoise) 100%);
+}
+
+.logo-bg-gradient-radial {
+    background: radial-gradient(circle, var(--logo-turquoise) 0%, var(--logo-accent) 50%, var(--logo-blue) 100%);
+}
+
+/* ============================================
+   SURCHARGES POUR CLASSES TAILWIND
+   ============================================ */
+.text-logo-blue { color: var(--logo-turquoise) !important; }
+.text-logo-cyan { color: var(--logo-light-cyan) !important; }
+.bg-logo-blue { background-color: var(--logo-turquoise) !important; }
+.bg-logo-cyan { background-color: var(--logo-light-cyan) !important; }
+
+/* Adaptations des classes Tailwind blue standards */
+.text-blue-600 { color: var(--logo-turquoise) !important; }
+.text-blue-700 { color: var(--logo-accent) !important; }
+.text-blue-800 { color: var(--logo-blue) !important; }
+.text-blue-500 { color: var(--logo-turquoise) !important; }
+.text-blue-200 { color: var(--logo-light-cyan) !important; }
+
+.bg-blue-600 { background-color: var(--logo-turquoise) !important; }
+.bg-blue-700 { background-color: var(--logo-accent) !important; }
+.bg-blue-800 { background-color: var(--logo-blue) !important; }
+.bg-blue-100 { background-color: rgba(0, 212, 255, 0.1) !important; }
+.bg-blue-50 { background-color: rgba(0, 212, 255, 0.05) !important; }
+
+.border-blue-500 { border-color: var(--logo-turquoise) !important; }
+.border-blue-600 { border-color: var(--logo-turquoise) !important; }
+
+.hover\:bg-blue-700:hover { background-color: var(--logo-accent) !important; }
+.hover\:bg-blue-800:hover { background-color: var(--logo-blue) !important; }
+.hover\:bg-blue-200:hover { background-color: rgba(0, 212, 255, 0.2) !important; }
+.hover\:bg-blue-50:hover { background-color: rgba(0, 212, 255, 0.1) !important; }
+.hover\:text-blue-200:hover { color: var(--logo-light-cyan) !important; }
+
+/* ============================================
+   BOUTONS STYLISÉS
+   ============================================ */
+.btn-logo-primary {
+    background: linear-gradient(135deg, var(--logo-turquoise) 0%, var(--logo-accent) 100%);
+    color: white;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-logo-primary:hover {
+    background: linear-gradient(135deg, var(--logo-accent) 0%, var(--logo-blue) 100%);
+    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-logo-secondary {
+    background-color: transparent;
+    color: var(--logo-turquoise);
+    border: 2px solid var(--logo-turquoise);
+    transition: all 0.3s ease;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-logo-secondary:hover {
+    background-color: var(--logo-turquoise);
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+}
+
+/* ============================================
+   BADGES ET TAGS
+   ============================================ */
+.badge-logo {
+    background-color: rgba(0, 212, 255, 0.1);
+    color: var(--logo-accent);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.badge-logo-primary {
+    background-color: var(--logo-turquoise);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* ============================================
+   CARTES ET CONTAINERS
+   ============================================ */
+.card-logo {
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.1);
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--logo-turquoise);
+}
+
+.card-logo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.2);
+}
+
+/* ============================================
+   LIENS ET NAVIGATION
+   ============================================ */
+.link-logo {
+    color: var(--logo-accent);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.link-logo:hover {
+    color: var(--logo-turquoise);
+}
+
+.link-logo::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--logo-light-cyan);
+    transition: width 0.3s ease;
+}
+
+.link-logo:hover::after {
+    width: 100%;
+}
+
+/* ============================================
+   ICÔNES
+   ============================================ */
+.icon-logo {
+    color: var(--logo-turquoise);
+}
+
+.icon-logo-primary {
+    color: var(--logo-turquoise);
+}
+
+.icon-logo-accent {
+    color: var(--logo-cyan);
+}
+
+.fa-check-circle.text-green-500 {
+    color: var(--logo-cyan) !important;
+}
+
+/* ============================================
+   SECTIONS SPÉCIALES
+   ============================================ */
+.section-logo-gradient {
+    background: linear-gradient(135deg, var(--logo-blue) 0%, var(--logo-accent) 50%, var(--logo-turquoise) 100%);
+    color: white;
+}
+
+.section-logo-light {
+    background-color: rgba(0, 212, 255, 0.05);
+}
+
+/* ============================================
+   FORMULAIRES
+   ============================================ */
+.input-logo:focus {
+    border-color: var(--logo-turquoise);
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+}
+
+.input-logo {
+    border: 2px solid rgba(0, 212, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.input-logo:focus {
+    outline: none;
+    border-color: var(--logo-turquoise);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes logo-pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+.logo-pulse {
+    animation: logo-pulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   UTILITAIRES
+   ============================================ */
+.shadow-logo {
+    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.2);
+}
+
+.shadow-logo-lg {
+    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+}
+
+.border-logo {
+    border-color: var(--logo-turquoise);
+}
+
+.border-logo-thick {
+    border: 3px solid var(--logo-turquoise);
+}
+

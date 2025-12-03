@@ -275,12 +275,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
+        /* Variables de couleurs basées sur le logo */
+        :root {
+            --logo-dark-blue: #0d1b2a;
+            --logo-blue: #1a3a5c;
+            --logo-turquoise: #00d4ff;
+            --logo-cyan: #40e0d0;
+            --logo-light-cyan: #00e5ff;
+            --logo-accent: #0096c7;
+            --logo-dark-turquoise: #00b4d8;
+        }
+        
         body {
             font-family: 'Poppins', sans-serif;
         }
         
         .gradient-bg {
-            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            background: linear-gradient(135deg, var(--logo-blue) 0%, var(--logo-accent) 50%, var(--logo-turquoise) 100%);
         }
         
         .hero-section {
@@ -319,8 +330,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         
         .service-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            border-bottom-color: #3b82f6;
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
+            border-bottom-color: var(--logo-turquoise);
         }
         
         .service-card-content {
@@ -384,7 +395,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             height: 2px;
             bottom: -2px;
             left: 0;
-            background-color: #93c5fd;
+            background-color: var(--logo-light-cyan);
             transition: width 0.3s ease;
         }
         
@@ -432,7 +443,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         
         .local-seo-section h3 {
-            color: #1e40af;
+            color: var(--logo-accent);
             font-weight: 600;
             margin-bottom: 1rem;
         }
@@ -449,14 +460,76 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         
         /* Enhanced CTA styling */
         .cta-primary {
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, var(--logo-turquoise) 0%, var(--logo-accent) 100%);
             transition: all 0.3s ease;
         }
         
         .cta-primary:hover {
-            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+            background: linear-gradient(135deg, var(--logo-accent) 0%, var(--logo-blue) 100%);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+        }
+        
+        /* Système de couleurs basé sur le logo - Classes personnalisées */
+        .logo-color-primary { color: var(--logo-turquoise); }
+        .logo-color-secondary { color: var(--logo-cyan); }
+        .logo-color-accent { color: var(--logo-accent); }
+        .logo-color-dark { color: var(--logo-blue); }
+        
+        .logo-bg-primary { background-color: var(--logo-turquoise); }
+        .logo-bg-secondary { background-color: var(--logo-cyan); }
+        .logo-bg-accent { background-color: var(--logo-accent); }
+        .logo-bg-dark { background-color: var(--logo-blue); }
+        .logo-bg-gradient { background: linear-gradient(135deg, var(--logo-blue) 0%, var(--logo-accent) 50%, var(--logo-turquoise) 100%); }
+        
+        /* Surcharges pour les classes Tailwind courantes avec les couleurs du logo */
+        .text-logo-blue { color: var(--logo-turquoise) !important; }
+        .text-logo-cyan { color: var(--logo-light-cyan) !important; }
+        .bg-logo-blue { background-color: var(--logo-turquoise) !important; }
+        .bg-logo-cyan { background-color: var(--logo-light-cyan) !important; }
+        
+        /* Adaptations des éléments avec les couleurs du logo */
+        .text-blue-600 { color: var(--logo-turquoise) !important; }
+        .text-blue-700 { color: var(--logo-accent) !important; }
+        .text-blue-800 { color: var(--logo-blue) !important; }
+        .bg-blue-600 { background-color: var(--logo-turquoise) !important; }
+        .bg-blue-700 { background-color: var(--logo-accent) !important; }
+        .bg-blue-800 { background-color: var(--logo-blue) !important; }
+        .bg-blue-100 { background-color: rgba(0, 212, 255, 0.1) !important; }
+        .bg-blue-50 { background-color: rgba(0, 212, 255, 0.05) !important; }
+        .border-blue-500 { border-color: var(--logo-turquoise) !important; }
+        .hover\:bg-blue-700:hover { background-color: var(--logo-accent) !important; }
+        .hover\:bg-blue-800:hover { background-color: var(--logo-blue) !important; }
+        .hover\:text-blue-200:hover { color: var(--logo-light-cyan) !important; }
+        .hover\:bg-blue-50:hover { background-color: rgba(0, 212, 255, 0.1) !important; }
+        .hover\:bg-blue-200:hover { background-color: rgba(0, 212, 255, 0.2) !important; }
+        
+        /* Icônes et éléments spécifiques */
+        .text-blue-500 { color: var(--logo-turquoise) !important; }
+        .fa-check-circle.text-green-500 { color: var(--logo-cyan) !important; }
+        
+        /* Sections avec dégradés du logo */
+        .section-gradient {
+            background: linear-gradient(135deg, var(--logo-blue) 0%, var(--logo-accent) 50%, var(--logo-turquoise) 100%);
+        }
+        
+        /* Boutons avec couleurs du logo */
+        .btn-logo-primary {
+            background: linear-gradient(135deg, var(--logo-turquoise) 0%, var(--logo-accent) 100%);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-logo-primary:hover {
+            background: linear-gradient(135deg, var(--logo-accent) 0%, var(--logo-blue) 100%);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+        }
+        
+        /* Badges et tags avec couleurs du logo */
+        .badge-logo {
+            background-color: rgba(0, 212, 255, 0.1);
+            color: var(--logo-accent);
+            border: 1px solid rgba(0, 212, 255, 0.3);
         }
     </style>
 </head>

@@ -677,6 +677,100 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         [data-theme="dark"] section.py-16.gradient-bg {
             background: linear-gradient(135deg, var(--logo-dark-blue) 0%, var(--logo-blue) 50%, var(--logo-accent) 100%) !important;
         }
+        
+        /* Correction de la visibilité du texte en mode sombre */
+        [data-theme="dark"] .text-gray-700 {
+            color: var(--text-primary) !important;
+        }
+        
+        [data-theme="dark"] .text-gray-600 {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] .text-blue-800 {
+            color: var(--logo-turquoise) !important;
+        }
+        
+        [data-theme="dark"] .bg-blue-100 .text-blue-800 {
+            color: var(--logo-turquoise) !important;
+        }
+        
+        [data-theme="dark"] .text-gray-900 {
+            color: var(--text-primary) !important;
+        }
+        
+        /* Boutons en mode sombre - texte plus foncé/visible */
+        [data-theme="dark"] .bg-blue-600,
+        [data-theme="dark"] .bg-blue-700 {
+            background-color: var(--logo-accent) !important;
+        }
+        
+        [data-theme="dark"] .bg-blue-600:hover,
+        [data-theme="dark"] .bg-blue-700:hover {
+            background-color: var(--logo-turquoise) !important;
+        }
+        
+        [data-theme="dark"] .bg-blue-600.text-white,
+        [data-theme="dark"] .bg-blue-700.text-white {
+            color: #ffffff !important;
+        }
+        
+        /* Section SEO en mode sombre */
+        [data-theme="dark"] .seo-text {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] .seo-text p {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] .seo-text strong {
+            color: var(--text-primary) !important;
+        }
+        
+        [data-theme="dark"] .seo-text ul li span {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] .seo-text ul li .text-blue-600 {
+            color: var(--logo-turquoise) !important;
+        }
+        
+        /* Correction supplémentaire pour les paragraphes et spans */
+        [data-theme="dark"] p.mb-4.text-center {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] p.mt-6.text-center {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] ul.mb-4.text-left li span {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] ul.mb-4.text-left li .text-blue-600 {
+            color: var(--logo-turquoise) !important;
+        }
+        
+        /* Labels du formulaire */
+        [data-theme="dark"] label.block.mb-2.font-medium.text-gray-700 {
+            color: var(--text-primary) !important;
+        }
+        
+        /* Badge avec bg-blue-100 */
+        [data-theme="dark"] .bg-blue-100 {
+            background-color: rgba(0, 212, 255, 0.15) !important;
+        }
+        
+        [data-theme="dark"] .bg-blue-100 span {
+            color: var(--logo-turquoise) !important;
+        }
+        
+        /* Titre de la section SEO */
+        [data-theme="dark"] .seo-text h2.text-2xl.font-bold.text-gray-900 {
+            color: var(--text-primary) !important;
+        }
     </style>
 </head>
 <body class="text-gray-800 bg-gray-50">
@@ -736,6 +830,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section id="accueil" class="bg-white text-gray-800 py-20 md:py-32 flex items-center">
         <div class="container mx-auto px-4 relative z-10 text-center">
             <div class="max-w-2xl mx-auto">
+                <!-- Logo centré au début -->
+                <div class="mb-8 flex justify-center">
+                    <img src="Logo.png" alt="A LA RECHERCHE DE LA FUITE - Logo" class="h-24 md:h-32 w-auto">
+                </div>
                 <div class="inline-block bg-blue-100 rounded-full px-4 py-1 mb-4">
                     <span class="text-sm font-semibold text-blue-800">Experts en détection de fuites</span>
                 </div>

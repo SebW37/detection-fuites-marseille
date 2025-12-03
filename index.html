@@ -286,6 +286,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             --logo-dark-turquoise: #00b4d8;
         }
         
+        /* MODE CLAIR - Thème par défaut */
+        :root,
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --bg-tertiary: #f3f4f6;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --text-tertiary: #9ca3af;
+            --border-color: #e5e7eb;
+            --card-bg: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --shadow-color-hover: rgba(0, 0, 0, 0.15);
+        }
+        
+        /* MODE SOMBRE */
+        [data-theme="dark"] {
+            --bg-primary: #0d1b2a;
+            --bg-secondary: #1a3a5c;
+            --bg-tertiary: #0f172a;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --text-tertiary: #9ca3af;
+            --border-color: #1e3a5c;
+            --card-bg: #1a3a5c;
+            --shadow-color: rgba(0, 212, 255, 0.2);
+            --shadow-color-hover: rgba(0, 212, 255, 0.3);
+        }
+        
+        /* Application des variables de thème */
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
         body {
             font-family: 'Poppins', sans-serif;
         }
@@ -531,9 +567,73 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: var(--logo-accent);
             border: 1px solid rgba(0, 212, 255, 0.3);
         }
+        
+        /* ============================================
+           MODE SOMBRE - Styles spécifiques
+           ============================================ */
+        [data-theme="dark"] .bg-white {
+            background-color: var(--card-bg) !important;
+        }
+        
+        [data-theme="dark"] .bg-gray-50 {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] .text-gray-800,
+        [data-theme="dark"] .text-gray-900 {
+            color: var(--text-primary) !important;
+        }
+        
+        [data-theme="dark"] .text-gray-600 {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] .service-card,
+        [data-theme="dark"] .testimonial-card {
+            background-color: var(--card-bg) !important;
+            border-color: var(--border-color) !important;
+            box-shadow: 0 5px 15px var(--shadow-color) !important;
+        }
+        
+        [data-theme="dark"] .service-card:hover,
+        [data-theme="dark"] .testimonial-card:hover {
+            box-shadow: 0 10px 25px var(--shadow-color-hover) !important;
+        }
+        
+        [data-theme="dark"] .bg-blue-100 {
+            background-color: rgba(0, 212, 255, 0.2) !important;
+        }
+        
+        [data-theme="dark"] .faq-question {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] .faq-question:hover {
+            background-color: var(--bg-tertiary) !important;
+        }
+        
+        [data-theme="dark"] .faq-answer {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] input,
+        [data-theme="dark"] textarea,
+        [data-theme="dark"] select {
+            background-color: var(--bg-secondary) !important;
+            color: var(--text-primary) !important;
+            border-color: var(--border-color) !important;
+        }
+        
+        [data-theme="dark"] footer {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] .gradient-bg {
+            background: linear-gradient(135deg, var(--logo-dark-blue) 0%, var(--logo-blue) 50%, var(--logo-accent) 100%);
+        }
     </style>
 </head>
-<body class="text-gray-800 bg-gray-50">
+<body class="text-gray-800 bg-gray-50" data-theme="light">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GLSS2VK"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -555,6 +655,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a href="marseille.html" class="nav-link text-white hover:text-blue-200 transition">Marseille</a>
                 <a href="aix-en-provence.html" class="nav-link text-white hover:text-blue-200 transition">Aix-en-Provence</a>
                 <a href="toulon.html" class="nav-link text-white hover:text-blue-200 transition">Toulon</a>
+                <button id="theme-toggle" class="bg-white text-blue-600 hover:bg-blue-50 font-bold py-2 px-4 rounded-full transition flex items-center justify-center" title="Basculer le thème">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </button>
                 <a href="#contact" class="bg-white text-blue-600 hover:bg-blue-50 font-bold py-2 px-6 rounded-full transition">Contact</a>
             </nav>
             <button class="lg:hidden text-xl focus:outline-none" id="mobile-menu-button">
@@ -574,6 +677,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a href="marseille.html" class="text-white hover:text-blue-200 transition py-2">Marseille</a>
                 <a href="aix-en-provence.html" class="text-white hover:text-blue-200 transition py-2">Aix-en-Provence</a>
                 <a href="toulon.html" class="text-white hover:text-blue-200 transition py-2">Toulon</a>
+                <button id="theme-toggle-mobile" class="bg-white text-blue-600 hover:bg-blue-50 font-bold py-2 px-4 rounded-full text-center transition mt-2 flex items-center justify-center mx-auto" title="Basculer le thème">
+                    <i class="fas fa-moon mr-2" id="theme-icon-mobile"></i>
+                    <span>Thème</span>
+                </button>
                 <a href="#contact" class="bg-white text-blue-600 hover:bg-blue-50 font-bold py-2 px-2 rounded-full text-center transition mt-2">Contact</a>
             </div>
         </div>
@@ -1536,6 +1643,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 }
             }
         });
+        
+        // ============================================
+        // SYSTÈME DE BASCULE DE THÈME CLAIR/SOMBRE
+        // ============================================
+        (function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+            const themeIcon = document.getElementById('theme-icon');
+            const themeIconMobile = document.getElementById('theme-icon-mobile');
+            const html = document.documentElement;
+            
+            // Récupérer le thème sauvegardé ou utiliser le thème clair par défaut
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', currentTheme);
+            
+            // Fonction pour mettre à jour les icônes
+            function updateIcons(theme) {
+                if (theme === 'dark') {
+                    themeIcon.className = 'fas fa-sun';
+                    themeIconMobile.className = 'fas fa-sun mr-2';
+                } else {
+                    themeIcon.className = 'fas fa-moon';
+                    themeIconMobile.className = 'fas fa-moon mr-2';
+                }
+            }
+            
+            // Initialiser les icônes au chargement
+            updateIcons(currentTheme);
+            
+            // Fonction pour basculer le thème
+            function toggleTheme() {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcons(newTheme);
+            }
+            
+            // Ajouter les event listeners
+            if (themeToggle) {
+                themeToggle.addEventListener('click', toggleTheme);
+            }
+            
+            if (themeToggleMobile) {
+                themeToggleMobile.addEventListener('click', toggleTheme);
+            }
+        })();
     </script>
 </body>
 </html>

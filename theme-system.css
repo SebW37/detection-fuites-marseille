@@ -1,0 +1,128 @@
+/* ============================================
+   SYSTÈME DE THÈME CLAIR/SOMBRE
+   A LA RECHERCHE DE LA FUITE
+   ============================================ */
+
+/* Variables de couleurs basées sur le logo */
+:root {
+    --logo-dark-blue: #0d1b2a;
+    --logo-blue: #1a3a5c;
+    --logo-turquoise: #00d4ff;
+    --logo-cyan: #40e0d0;
+    --logo-light-cyan: #00e5ff;
+    --logo-accent: #0096c7;
+    --logo-dark-turquoise: #00b4d8;
+}
+
+/* MODE CLAIR - Thème par défaut */
+:root,
+[data-theme="light"] {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f9fafb;
+    --bg-tertiary: #f3f4f6;
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --text-tertiary: #9ca3af;
+    --border-color: #e5e7eb;
+    --card-bg: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-color-hover: rgba(0, 0, 0, 0.15);
+}
+
+/* MODE SOMBRE */
+[data-theme="dark"] {
+    --bg-primary: #0d1b2a;
+    --bg-secondary: #1a3a5c;
+    --bg-tertiary: #0f172a;
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --text-tertiary: #9ca3af;
+    --border-color: #1e3a5c;
+    --card-bg: #1a3a5c;
+    --shadow-color: rgba(0, 212, 255, 0.2);
+    --shadow-color-hover: rgba(0, 212, 255, 0.3);
+}
+
+/* Application des variables de thème */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ============================================
+   MODE SOMBRE - Styles spécifiques
+   ============================================ */
+[data-theme="dark"] .bg-white {
+    background-color: var(--card-bg) !important;
+}
+
+[data-theme="dark"] .bg-gray-50 {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .text-gray-800,
+[data-theme="dark"] .text-gray-900 {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .text-gray-600 {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .testimonial-card {
+    background-color: var(--card-bg) !important;
+    border-color: var(--border-color) !important;
+    box-shadow: 0 5px 15px var(--shadow-color) !important;
+}
+
+[data-theme="dark"] .service-card:hover,
+[data-theme="dark"] .testimonial-card:hover {
+    box-shadow: 0 10px 25px var(--shadow-color-hover) !important;
+}
+
+[data-theme="dark"] .bg-blue-100 {
+    background-color: rgba(0, 212, 255, 0.2) !important;
+}
+
+[data-theme="dark"] .faq-question {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .faq-question:hover {
+    background-color: var(--bg-tertiary) !important;
+}
+
+[data-theme="dark"] .faq-answer {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] footer {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .gradient-bg {
+    background: linear-gradient(135deg, var(--logo-dark-blue) 0%, var(--logo-blue) 50%, var(--logo-accent) 100%);
+}
+
+[data-theme="dark"] .bg-gray-900 {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .text-white {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .text-gray-400 {
+    color: var(--text-secondary) !important;
+}
+

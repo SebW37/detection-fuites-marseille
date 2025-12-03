@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,169 +10,557 @@
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5GLSS2VK');</script>
-    <!-- End Google Tag Manager -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #fff;
-            padding: 40px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 3px solid #2563eb;
-        }
-        
-        .header h1 {
-            color: #1e40af;
-            font-size: 2.5em;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        
-        .header p {
-            color: #6b7280;
-            font-size: 1.1em;
-        }
-        
-        .phase {
-            margin-bottom: 40px;
-            page-break-inside: avoid;
-        }
-        
-        .phase-header {
-            background: linear-gradient(135deg, #2563eb, #1e40af);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .phase-header h2 {
-            font-size: 1.8em;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .phase-header .priority {
-            font-size: 0.9em;
-            opacity: 0.9;
-        }
-        
-        .section {
-            margin-bottom: 25px;
-            padding: 20px;
-            background: #f8fafc;
-            border-radius: 8px;
-            border-left: 4px solid #2563eb;
-        }
-        
-        .section h3 {
-            color: #1e40af;
-            font-size: 1.3em;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        .task-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .task-list li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        
-        .task-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .task-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #10b981;
-            font-weight: bold;
-        }
-        
-        .priority-high {
-            color: #dc2626;
-            font-weight: 600;
-        }
-        
-        .priority-medium {
-            color: #ea580c;
-            font-weight: 600;
-        }
-        
-        .recommendations {
-            background: linear-gradient(135deg, #fef3c7, #fde68a);
-            padding: 25px;
-            border-radius: 10px;
-            margin-top: 30px;
-            border: 2px solid #f59e0b;
-        }
-        
-        .recommendations h3 {
-            color: #92400e;
-            margin-bottom: 15px;
-        }
-        
-        .recommendations ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .recommendations li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-        }
-        
-        .recommendations li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #f59e0b;
-            font-weight: bold;
-        }
-        
-        .footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 2px solid #e5e7eb;
-            text-align: center;
-            color: #6b7280;
-            font-size: 0.9em;
-        }
-        
-        @media print {
-            body {
-                padding: 20px;
+})(window,document,'script','dataLayer','GTM-5GLSS2VK');
+        // ============================================
+        // SYSTÈME DE BASCULE DE THÈME CLAIR/SOMBRE
+        // ============================================
+        (function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+            const themeIcon = document.getElementById('theme-icon');
+            const themeIconMobile = document.getElementById('theme-icon-mobile');
+            const html = document.documentElement;
+            
+            // Récupérer le thème sauvegardé ou utiliser le thème clair par défaut
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', currentTheme);
+            
+            // Fonction pour mettre à jour les icônes
+            function updateIcons(theme) {
+                if (theme === 'dark') {
+                    if (themeIcon) themeIcon.className = 'fas fa-sun';
+                    if (themeIconMobile) themeIconMobile.className = 'fas fa-sun mr-2';
+                } else {
+                    if (themeIcon) themeIcon.className = 'fas fa-moon';
+                    if (themeIconMobile) themeIconMobile.className = 'fas fa-moon mr-2';
+                }
             }
             
-            .phase {
-                page-break-inside: avoid;
+            // Initialiser les icônes au chargement
+            updateIcons(currentTheme);
+            
+            // Fonction pour basculer le thème
+            function toggleTheme() {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcons(newTheme);
             }
+            
+            // Ajouter les event listeners
+            if (themeToggle) {
+                themeToggle.addEventListener('click', toggleTheme);
+            }
+            
+            if (themeToggleMobile) {
+                themeToggleMobile.addEventListener('click', toggleTheme);
+            }
+        })();
+
+    </script>
+    <!-- End Google Tag Manager -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        /* Variables de couleurs basées sur le logo */
+        :root {
+            --logo-dark-blue: #0d1b2a;
+            --logo-blue: #1a3a5c;
+            --logo-turquoise: #00d4ff;
+            --logo-cyan: #40e0d0;
+            --logo-light-cyan: #00e5ff;
+            --logo-accent: #0096c7;
+            --logo-dark-turquoise: #00b4d8;
         }
+        
+        /* MODE CLAIR - Thème par défaut */
+        :root,
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --bg-tertiary: #f3f4f6;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --text-tertiary: #9ca3af;
+            --border-color: #e5e7eb;
+            --card-bg: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --shadow-color-hover: rgba(0, 0, 0, 0.15);
+        }
+        
+        /* MODE SOMBRE */
+        [data-theme="dark"] {
+            --bg-primary: #0d1b2a;
+            --bg-secondary: #1a3a5c;
+            --bg-tertiary: #0f172a;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --text-tertiary: #9ca3af;
+            --border-color: #1e3a5c;
+            --card-bg: #1a3a5c;
+            --shadow-color: rgba(0, 212, 255, 0.2);
+            --shadow-color-hover: rgba(0, 212, 255, 0.3);
+        }
+        
+        /* Application des variables de thème */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-primary) !important;
+            color: var(--text-primary) !important;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Surcharge pour le mode clair - fond blanc */
+        [data-theme="light"] body {
+            background-color: #ffffff !important;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--logo-blue) 0%, var(--logo-accent) 50%, var(--logo-turquoise) 100%);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1600566752355-35792bedcfe3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Enhanced SEO Optimizations */
+        .seo-text {
+            color: #6b7280;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        .seo-text strong {
+            color: #374151;
+            font-weight: 600;
+        }
+        
+        /* Improved heading hierarchy for SEO */
+        .seo-heading {
+            color: #1f2937;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .service-card {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-bottom: 4px solid transparent;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
+            border-bottom-color: var(--logo-turquoise);
+        }
+        
+        .service-card-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-card-cta {
+            margin-top: auto;
+        }
+        
+        .testimonial-card {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .faq-item {
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+        
+        .faq-question {
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--logo-light-cyan);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        /* Article specific styles */
+        .article-content h2 {
+            color: #1f2937;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .article-content h3 {
+            color: #374151;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .article-content p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        
+        .article-content ul {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Enhanced local SEO styling */
+        .local-seo-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .local-seo-section h3 {
+            color: var(--logo-accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        /* Performance optimizations */
+        .lazy-load {
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
+        
+        .lazy-load.loaded {
+            opacity: 1;
+        }
+        
+        /* Enhanced CTA styling */
+        .cta-primary {
+            background: linear-gradient(135deg, var(--logo-turquoise) 0%, var(--logo-accent) 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-primary:hover {
+            background: linear-gradient(135deg, var(--logo-accent) 0%, var(--logo-blue) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+        }
+        
+        /* Système de couleurs basé sur le logo - Classes personnalisées */
+        .logo-color-primary { color: var(--logo-turquoise); }
+        .logo-color-secondary { color: var(--logo-cyan); }
+        .logo-color-accent { color: var(--logo-accent); }
+        .logo-color-dark { color: var(--logo-blue); }
+        
+        .logo-bg-primary { background-color: var(--logo-turquoise); }
+        .logo-bg-secondary { background-color: var(--logo-cyan); }
+        .logo-bg-accent { background-color: var(--logo-accent); }
+        .logo-bg-dark { background-color: var(--logo-blue); }
+        .logo-bg-gradient { background: linear-gradient(135deg, var(--logo-blue) 0%, var(--logo-accent) 50%, var(--logo-turquoise) 100%); }
+        
+        /* Surcharges pour les classes Tailwind courantes avec les couleurs du logo */
+        .text-logo-blue { color: var(--logo-turquoise) !important; }
+        .text-logo-cyan { color: var(--logo-light-cyan) !important; }
+        .bg-logo-blue { background-color: var(--logo-turquoise) !important; }
+        .bg-logo-cyan { background-color: var(--logo-light-cyan) !important; }
+        
+        /* Adaptations des éléments avec les couleurs du logo */
+        .text-blue-600 { color: var(--logo-turquoise) !important; }
+        .text-blue-700 { color: var(--logo-accent) !important; }
+        .text-blue-800 { color: var(--logo-blue) !important; }
+        .bg-blue-600 { background-color: var(--logo-turquoise) !important; }
+        .bg-blue-700 { background-color: var(--logo-accent) !important; }
+        .bg-blue-800 { background-color: var(--logo-blue) !important; }
+        .bg-blue-100 { background-color: rgba(0, 212, 255, 0.1) !important; }
+        .bg-blue-50 { background-color: rgba(0, 212, 255, 0.05) !important; }
+        .border-blue-500 { border-color: var(--logo-turquoise) !important; }
+        .hover\:bg-blue-700:hover { background-color: var(--logo-accent) !important; }
+        .hover\:bg-blue-800:hover { background-color: var(--logo-blue) !important; }
+        .hover\:text-blue-200:hover { color: var(--logo-light-cyan) !important; }
+        .hover\:bg-blue-50:hover { background-color: rgba(0, 212, 255, 0.1) !important; }
+        .hover\:bg-blue-200:hover { background-color: rgba(0, 212, 255, 0.2) !important; }
+        
+        /* Icônes et éléments spécifiques */
+        .text-blue-500 { color: var(--logo-turquoise) !important; }
+        .fa-check-circle.text-green-500 { color: var(--logo-cyan) !important; }
+        
+        /* Sections avec dégradés du logo */
+        .section-gradient {
+            background: linear-gradient(135deg, var(--logo-blue) 0%, var(--logo-accent) 50%, var(--logo-turquoise) 100%);
+        }
+        
+        /* Boutons avec couleurs du logo */
+        .btn-logo-primary {
+            background: linear-gradient(135deg, var(--logo-turquoise) 0%, var(--logo-accent) 100%);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-logo-primary:hover {
+            background: linear-gradient(135deg, var(--logo-accent) 0%, var(--logo-blue) 100%);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+        }
+        
+        /* Badges et tags avec couleurs du logo */
+        .badge-logo {
+            background-color: rgba(0, 212, 255, 0.1);
+            color: var(--logo-accent);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        
+        /* ============================================
+           MODE SOMBRE - Styles spécifiques
+           ============================================ */
+        [data-theme="dark"] .bg-white {
+            background-color: var(--card-bg) !important;
+        }
+        
+        [data-theme="dark"] .bg-gray-50 {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] .text-gray-800,
+        [data-theme="dark"] .text-gray-900 {
+            color: var(--text-primary) !important;
+        }
+        
+        [data-theme="dark"] .text-gray-600 {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] .service-card,
+        [data-theme="dark"] .testimonial-card {
+            background-color: var(--card-bg) !important;
+            border-color: var(--border-color) !important;
+            box-shadow: 0 5px 15px var(--shadow-color) !important;
+        }
+        
+        [data-theme="dark"] .service-card:hover,
+        [data-theme="dark"] .testimonial-card:hover {
+            box-shadow: 0 10px 25px var(--shadow-color-hover) !important;
+        }
+        
+        [data-theme="dark"] .bg-blue-100 {
+            background-color: rgba(0, 212, 255, 0.2) !important;
+        }
+        
+        [data-theme="dark"] .faq-question {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] .faq-question:hover {
+            background-color: var(--bg-tertiary) !important;
+        }
+        
+        [data-theme="dark"] .faq-answer {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] input,
+        [data-theme="dark"] textarea,
+        [data-theme="dark"] select {
+            background-color: var(--bg-secondary) !important;
+            color: var(--text-primary) !important;
+            border-color: var(--border-color) !important;
+        }
+        
+        [data-theme="dark"] footer {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] .gradient-bg {
+            background: linear-gradient(135deg, var(--logo-dark-blue) 0%, var(--logo-blue) 50%, var(--logo-accent) 100%);
+        }
+        
+        /* Forcer les backgrounds des sections principales en mode sombre */
+        [data-theme="dark"] body {
+            background-color: var(--bg-primary) !important;
+            color: var(--text-primary) !important;
+        }
+        
+        [data-theme="dark"] #accueil.bg-white {
+            background-color: var(--bg-primary) !important;
+        }
+        
+        [data-theme="dark"] #services.bg-gray-50 {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] #expertise.bg-white {
+            background-color: var(--bg-primary) !important;
+        }
+        
+        [data-theme="dark"] #temoignages.bg-gray-50 {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] #faq.bg-white {
+            background-color: var(--bg-primary) !important;
+        }
+        
+        [data-theme="dark"] #contact.bg-gray-50 {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] section.py-8.bg-gray-50 {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        /* Section Process en mode sombre */
+        [data-theme="dark"] section.gradient-bg {
+            background: linear-gradient(135deg, var(--logo-dark-blue) 0%, var(--logo-blue) 50%, var(--logo-accent) 100%) !important;
+        }
+        
+        /* Section CTA en mode sombre */
+        [data-theme="dark"] section.py-16.gradient-bg {
+            background: linear-gradient(135deg, var(--logo-dark-blue) 0%, var(--logo-blue) 50%, var(--logo-accent) 100%) !important;
+        }
+        
+        /* Correction de la visibilité du texte en mode sombre */
+        [data-theme="dark"] .text-gray-700 {
+            color: var(--text-primary) !important;
+        }
+        
+        [data-theme="dark"] .text-gray-600 {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] .text-blue-800 {
+            color: var(--logo-turquoise) !important;
+        }
+        
+        [data-theme="dark"] .bg-blue-100 .text-blue-800 {
+            color: var(--logo-turquoise) !important;
+        }
+        
+        [data-theme="dark"] .text-gray-900 {
+            color: var(--text-primary) !important;
+        }
+        
+        /* Boutons en mode sombre - texte plus foncé/visible */
+        [data-theme="dark"] .bg-blue-600,
+        [data-theme="dark"] .bg-blue-700 {
+            background-color: var(--logo-accent) !important;
+        }
+        
+        [data-theme="dark"] .bg-blue-600:hover,
+        [data-theme="dark"] .bg-blue-700:hover {
+            background-color: var(--logo-turquoise) !important;
+        }
+        
+        [data-theme="dark"] .bg-blue-600.text-white,
+        [data-theme="dark"] .bg-blue-700.text-white {
+            color: #ffffff !important;
+        }
+        
+        /* Section SEO en mode sombre */
+        [data-theme="dark"] .seo-text {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] .seo-text p {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] .seo-text strong {
+            color: var(--text-primary) !important;
+        }
+        
+        [data-theme="dark"] .seo-text ul li span {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] .seo-text ul li .text-blue-600 {
+            color: var(--logo-turquoise) !important;
+        }
+        
+        /* Correction supplémentaire pour les paragraphes et spans */
+        [data-theme="dark"] p.mb-4.text-center {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] p.mt-6.text-center {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] ul.mb-4.text-left li span {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] ul.mb-4.text-left li .text-blue-600 {
+            color: var(--logo-turquoise) !important;
+        }
+        
+        /* Labels du formulaire */
+        [data-theme="dark"] label.block.mb-2.font-medium.text-gray-700 {
+            color: var(--text-primary) !important;
+        }
+        
+        /* Badge avec bg-blue-100 */
+        [data-theme="dark"] .bg-blue-100 {
+            background-color: rgba(0, 212, 255, 0.15) !important;
+        }
+        
+        [data-theme="dark"] .bg-blue-100 span {
+            color: var(--logo-turquoise) !important;
+        }
+        
+        /* Titre de la section SEO */
+        [data-theme="dark"] .seo-text h2.text-2xl.font-bold.text-gray-900 {
+            color: var(--text-primary) !important;
+        }
+    
     </style>
 </head>
 <body>

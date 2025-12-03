@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,56 @@
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5GLSS2VK');</script>
+})(window,document,'script','dataLayer','GTM-5GLSS2VK');
+        // ============================================
+        // SYSTÈME DE BASCULE DE THÈME CLAIR/SOMBRE
+        // ============================================
+        (function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+            const themeIcon = document.getElementById('theme-icon');
+            const themeIconMobile = document.getElementById('theme-icon-mobile');
+            const html = document.documentElement;
+            
+            // Récupérer le thème sauvegardé ou utiliser le thème clair par défaut
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', currentTheme);
+            
+            // Fonction pour mettre à jour les icônes
+            function updateIcons(theme) {
+                if (theme === 'dark') {
+                    if (themeIcon) themeIcon.className = 'fas fa-sun';
+                    if (themeIconMobile) themeIconMobile.className = 'fas fa-sun mr-2';
+                } else {
+                    if (themeIcon) themeIcon.className = 'fas fa-moon';
+                    if (themeIconMobile) themeIconMobile.className = 'fas fa-moon mr-2';
+                }
+            }
+            
+            // Initialiser les icônes au chargement
+            updateIcons(currentTheme);
+            
+            // Fonction pour basculer le thème
+            function toggleTheme() {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcons(newTheme);
+            }
+            
+            // Ajouter les event listeners
+            if (themeToggle) {
+                themeToggle.addEventListener('click', toggleTheme);
+            }
+            
+            if (themeToggleMobile) {
+                themeToggleMobile.addEventListener('click', toggleTheme);
+            }
+        })();
+
+    </script>
     <!-- End Google Tag Manager -->
     
     <!-- Google tag (gtag.js) -->
@@ -259,12 +308,61 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
+        /* Variables de couleurs basées sur le logo */
+        :root {
+            --logo-dark-blue: #0d1b2a;
+            --logo-blue: #1a3a5c;
+            --logo-turquoise: #00d4ff;
+            --logo-cyan: #40e0d0;
+            --logo-light-cyan: #00e5ff;
+            --logo-accent: #0096c7;
+            --logo-dark-turquoise: #00b4d8;
+        }
+        
+        /* MODE CLAIR - Thème par défaut */
+        :root,
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --bg-tertiary: #f3f4f6;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --text-tertiary: #9ca3af;
+            --border-color: #e5e7eb;
+            --card-bg: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --shadow-color-hover: rgba(0, 0, 0, 0.15);
+        }
+        
+        /* MODE SOMBRE */
+        [data-theme="dark"] {
+            --bg-primary: #0d1b2a;
+            --bg-secondary: #1a3a5c;
+            --bg-tertiary: #0f172a;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --text-tertiary: #9ca3af;
+            --border-color: #1e3a5c;
+            --card-bg: #1a3a5c;
+            --shadow-color: rgba(0, 212, 255, 0.2);
+            --shadow-color-hover: rgba(0, 212, 255, 0.3);
+        }
+        
+        /* Application des variables de thème */
         body {
             font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-primary) !important;
+            color: var(--text-primary) !important;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Surcharge pour le mode clair - fond blanc */
+        [data-theme="light"] body {
+            background-color: #ffffff !important;
         }
         
         .gradient-bg {
-            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            background: linear-gradient(135deg, var(--logo-blue) 0%, var(--logo-accent) 50%, var(--logo-turquoise) 100%);
         }
         
         .hero-section {
@@ -296,12 +394,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .service-card {
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             border-bottom: 4px solid transparent;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         
         .service-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            border-bottom-color: #3b82f6;
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
+            border-bottom-color: var(--logo-turquoise);
+        }
+        
+        .service-card-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-card-cta {
+            margin-top: auto;
         }
         
         .testimonial-card {
@@ -355,7 +466,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             height: 2px;
             bottom: -2px;
             left: 0;
-            background-color: #93c5fd;
+            background-color: var(--logo-light-cyan);
             transition: width 0.3s ease;
         }
         
@@ -403,7 +514,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         
         .local-seo-section h3 {
-            color: #1e40af;
+            color: var(--logo-accent);
             font-weight: 600;
             margin-bottom: 1rem;
         }
@@ -420,21 +531,280 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         
         /* Enhanced CTA styling */
         .cta-primary {
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, var(--logo-turquoise) 0%, var(--logo-accent) 100%);
             transition: all 0.3s ease;
         }
         
         .cta-primary:hover {
-            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+            background: linear-gradient(135deg, var(--logo-accent) 0%, var(--logo-blue) 100%);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
         }
         
-        .arrondissement-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+        /* Système de couleurs basé sur le logo - Classes personnalisées */
+        .logo-color-primary { color: var(--logo-turquoise); }
+        .logo-color-secondary { color: var(--logo-cyan); }
+        .logo-color-accent { color: var(--logo-accent); }
+        .logo-color-dark { color: var(--logo-blue); }
+        
+        .logo-bg-primary { background-color: var(--logo-turquoise); }
+        .logo-bg-secondary { background-color: var(--logo-cyan); }
+        .logo-bg-accent { background-color: var(--logo-accent); }
+        .logo-bg-dark { background-color: var(--logo-blue); }
+        .logo-bg-gradient { background: linear-gradient(135deg, var(--logo-blue) 0%, var(--logo-accent) 50%, var(--logo-turquoise) 100%); }
+        
+        /* Surcharges pour les classes Tailwind courantes avec les couleurs du logo */
+        .text-logo-blue { color: var(--logo-turquoise) !important; }
+        .text-logo-cyan { color: var(--logo-light-cyan) !important; }
+        .bg-logo-blue { background-color: var(--logo-turquoise) !important; }
+        .bg-logo-cyan { background-color: var(--logo-light-cyan) !important; }
+        
+        /* Adaptations des éléments avec les couleurs du logo */
+        .text-blue-600 { color: var(--logo-turquoise) !important; }
+        .text-blue-700 { color: var(--logo-accent) !important; }
+        .text-blue-800 { color: var(--logo-blue) !important; }
+        .bg-blue-600 { background-color: var(--logo-turquoise) !important; }
+        .bg-blue-700 { background-color: var(--logo-accent) !important; }
+        .bg-blue-800 { background-color: var(--logo-blue) !important; }
+        .bg-blue-100 { background-color: rgba(0, 212, 255, 0.1) !important; }
+        .bg-blue-50 { background-color: rgba(0, 212, 255, 0.05) !important; }
+        .border-blue-500 { border-color: var(--logo-turquoise) !important; }
+        .hover\:bg-blue-700:hover { background-color: var(--logo-accent) !important; }
+        .hover\:bg-blue-800:hover { background-color: var(--logo-blue) !important; }
+        .hover\:text-blue-200:hover { color: var(--logo-light-cyan) !important; }
+        .hover\:bg-blue-50:hover { background-color: rgba(0, 212, 255, 0.1) !important; }
+        .hover\:bg-blue-200:hover { background-color: rgba(0, 212, 255, 0.2) !important; }
+        
+        /* Icônes et éléments spécifiques */
+        .text-blue-500 { color: var(--logo-turquoise) !important; }
+        .fa-check-circle.text-green-500 { color: var(--logo-cyan) !important; }
+        
+        /* Sections avec dégradés du logo */
+        .section-gradient {
+            background: linear-gradient(135deg, var(--logo-blue) 0%, var(--logo-accent) 50%, var(--logo-turquoise) 100%);
         }
+        
+        /* Boutons avec couleurs du logo */
+        .btn-logo-primary {
+            background: linear-gradient(135deg, var(--logo-turquoise) 0%, var(--logo-accent) 100%);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-logo-primary:hover {
+            background: linear-gradient(135deg, var(--logo-accent) 0%, var(--logo-blue) 100%);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+        }
+        
+        /* Badges et tags avec couleurs du logo */
+        .badge-logo {
+            background-color: rgba(0, 212, 255, 0.1);
+            color: var(--logo-accent);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        
+        /* ============================================
+           MODE SOMBRE - Styles spécifiques
+           ============================================ */
+        [data-theme="dark"] .bg-white {
+            background-color: var(--card-bg) !important;
+        }
+        
+        [data-theme="dark"] .bg-gray-50 {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] .text-gray-800,
+        [data-theme="dark"] .text-gray-900 {
+            color: var(--text-primary) !important;
+        }
+        
+        [data-theme="dark"] .text-gray-600 {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] .service-card,
+        [data-theme="dark"] .testimonial-card {
+            background-color: var(--card-bg) !important;
+            border-color: var(--border-color) !important;
+            box-shadow: 0 5px 15px var(--shadow-color) !important;
+        }
+        
+        [data-theme="dark"] .service-card:hover,
+        [data-theme="dark"] .testimonial-card:hover {
+            box-shadow: 0 10px 25px var(--shadow-color-hover) !important;
+        }
+        
+        [data-theme="dark"] .bg-blue-100 {
+            background-color: rgba(0, 212, 255, 0.2) !important;
+        }
+        
+        [data-theme="dark"] .faq-question {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] .faq-question:hover {
+            background-color: var(--bg-tertiary) !important;
+        }
+        
+        [data-theme="dark"] .faq-answer {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] input,
+        [data-theme="dark"] textarea,
+        [data-theme="dark"] select {
+            background-color: var(--bg-secondary) !important;
+            color: var(--text-primary) !important;
+            border-color: var(--border-color) !important;
+        }
+        
+        [data-theme="dark"] footer {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] .gradient-bg {
+            background: linear-gradient(135deg, var(--logo-dark-blue) 0%, var(--logo-blue) 50%, var(--logo-accent) 100%);
+        }
+        
+        /* Forcer les backgrounds des sections principales en mode sombre */
+        [data-theme="dark"] body {
+            background-color: var(--bg-primary) !important;
+            color: var(--text-primary) !important;
+        }
+        
+        [data-theme="dark"] #accueil.bg-white {
+            background-color: var(--bg-primary) !important;
+        }
+        
+        [data-theme="dark"] #services.bg-gray-50 {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] #expertise.bg-white {
+            background-color: var(--bg-primary) !important;
+        }
+        
+        [data-theme="dark"] #temoignages.bg-gray-50 {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] #faq.bg-white {
+            background-color: var(--bg-primary) !important;
+        }
+        
+        [data-theme="dark"] #contact.bg-gray-50 {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] section.py-8.bg-gray-50 {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        /* Section Process en mode sombre */
+        [data-theme="dark"] section.gradient-bg {
+            background: linear-gradient(135deg, var(--logo-dark-blue) 0%, var(--logo-blue) 50%, var(--logo-accent) 100%) !important;
+        }
+        
+        /* Section CTA en mode sombre */
+        [data-theme="dark"] section.py-16.gradient-bg {
+            background: linear-gradient(135deg, var(--logo-dark-blue) 0%, var(--logo-blue) 50%, var(--logo-accent) 100%) !important;
+        }
+        
+        /* Correction de la visibilité du texte en mode sombre */
+        [data-theme="dark"] .text-gray-700 {
+            color: var(--text-primary) !important;
+        }
+        
+        [data-theme="dark"] .text-gray-600 {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] .text-blue-800 {
+            color: var(--logo-turquoise) !important;
+        }
+        
+        [data-theme="dark"] .bg-blue-100 .text-blue-800 {
+            color: var(--logo-turquoise) !important;
+        }
+        
+        [data-theme="dark"] .text-gray-900 {
+            color: var(--text-primary) !important;
+        }
+        
+        /* Boutons en mode sombre - texte plus foncé/visible */
+        [data-theme="dark"] .bg-blue-600,
+        [data-theme="dark"] .bg-blue-700 {
+            background-color: var(--logo-accent) !important;
+        }
+        
+        [data-theme="dark"] .bg-blue-600:hover,
+        [data-theme="dark"] .bg-blue-700:hover {
+            background-color: var(--logo-turquoise) !important;
+        }
+        
+        [data-theme="dark"] .bg-blue-600.text-white,
+        [data-theme="dark"] .bg-blue-700.text-white {
+            color: #ffffff !important;
+        }
+        
+        /* Section SEO en mode sombre */
+        [data-theme="dark"] .seo-text {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] .seo-text p {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] .seo-text strong {
+            color: var(--text-primary) !important;
+        }
+        
+        [data-theme="dark"] .seo-text ul li span {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] .seo-text ul li .text-blue-600 {
+            color: var(--logo-turquoise) !important;
+        }
+        
+        /* Correction supplémentaire pour les paragraphes et spans */
+        [data-theme="dark"] p.mb-4.text-center {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] p.mt-6.text-center {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] ul.mb-4.text-left li span {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] ul.mb-4.text-left li .text-blue-600 {
+            color: var(--logo-turquoise) !important;
+        }
+        
+        /* Labels du formulaire */
+        [data-theme="dark"] label.block.mb-2.font-medium.text-gray-700 {
+            color: var(--text-primary) !important;
+        }
+        
+        /* Badge avec bg-blue-100 */
+        [data-theme="dark"] .bg-blue-100 {
+            background-color: rgba(0, 212, 255, 0.15) !important;
+        }
+        
+        [data-theme="dark"] .bg-blue-100 span {
+            color: var(--logo-turquoise) !important;
+        }
+        
+        /* Titre de la section SEO */
+        [data-theme="dark"] .seo-text h2.text-2xl.font-bold.text-gray-900 {
+            color: var(--text-primary) !important;
+        }
+    
     </style>
 </head>
 <body class="text-gray-800 bg-gray-50">
@@ -444,7 +814,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <!-- Header/Navigation -->
     <header class="gradient-bg text-white sticky top-0 z-50 shadow-lg">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center text-center">
             <div class="flex items-center space-x-3">
                 <img src="Logo.png" alt="A LA RECHERCHE DE LA FUITE - Logo" class="h-12 w-auto">
                 <h1 class="text-xl md:text-2xl font-bold">A LA RECHERCHE<br class="md:hidden"> DE LA FUITE</h1>
@@ -456,9 +826,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a href="index.html#temoignages" class="nav-link text-white hover:text-blue-200 transition">Témoignages</a>
                 <a href="index.html#faq" class="nav-link text-white hover:text-blue-200 transition">FAQ</a>
                 <a href="blog.html" class="nav-link text-white hover:text-blue-200 transition">Blog</a>
-                <a href="marseille.html" class="nav-link text-white hover:text-blue-200 transition bg-blue-700 px-3 py-1 rounded">Marseille</a>
+                <a href="marseille.html" class="nav-link text-white hover:text-blue-200 transition">Marseille</a>
                 <a href="aix-en-provence.html" class="nav-link text-white hover:text-blue-200 transition">Aix-en-Provence</a>
                 <a href="toulon.html" class="nav-link text-white hover:text-blue-200 transition">Toulon</a>
+                <button id="theme-toggle" class="bg-white text-blue-600 hover:bg-blue-50 font-bold py-2 px-4 rounded-full transition flex items-center justify-center" title="Basculer le thème">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </button>
                 <a href="index.html#contact" class="bg-white text-blue-600 hover:bg-blue-50 font-bold py-2 px-6 rounded-full transition">Contact</a>
             </nav>
             <button class="lg:hidden text-xl focus:outline-none" id="mobile-menu-button">
@@ -468,17 +841,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <!-- Mobile menu -->
         <div class="lg:hidden hidden bg-blue-800 py-4" id="mobile-menu">
-            <div class="container mx-auto px-4 flex flex-col space-y-4">
+            <div class="container mx-auto px-4 flex flex-col space-y-4 text-center">
                 <a href="index.html" class="text-white hover:text-blue-200 transition py-2">Accueil</a>
                 <a href="index.html#services" class="text-white hover:text-blue-200 transition py-2">Services</a>
                 <a href="index.html#expertise" class="text-white hover:text-blue-200 transition py-2">Expertise</a>
                 <a href="index.html#temoignages" class="text-white hover:text-blue-200 transition py-2">Témoignages</a>
                 <a href="index.html#faq" class="text-white hover:text-blue-200 transition py-2">FAQ</a>
                 <a href="blog.html" class="text-white hover:text-blue-200 transition py-2">Blog</a>
-                <a href="marseille.html" class="text-white hover:text-blue-200 transition py-2 bg-blue-700 px-3 py-1 rounded">Marseille</a>
+                <a href="marseille.html" class="text-white hover:text-blue-200 transition py-2">Marseille</a>
                 <a href="aix-en-provence.html" class="text-white hover:text-blue-200 transition py-2">Aix-en-Provence</a>
                 <a href="toulon.html" class="text-white hover:text-blue-200 transition py-2">Toulon</a>
-                <a href="index.html#contact" class="bg-white text-blue-600 hover:bg-blue-50 font-bold py-2 px-6 rounded-full text-center transition mt-2">Contact</a>
+                <button id="theme-toggle-mobile" class="bg-white text-blue-600 hover:bg-blue-50 font-bold py-2 px-4 rounded-full text-center transition mt-2 flex items-center justify-center mx-auto" title="Basculer le thème">
+                    <i class="fas fa-moon mr-2" id="theme-icon-mobile"></i>
+                    <span>Thème</span>
+                </button>
+                <a href="index.html#contact" class="bg-white text-blue-600 hover:bg-blue-50 font-bold py-2 px-2 rounded-full text-center transition mt-2">Contact</a>
             </div>
         </div>
     </header>
@@ -809,7 +1186,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
         <div class="container mx-auto px-4 text-center">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
@@ -819,46 +1196,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                         A LA RECHERCHE DE LA FUITE
                     </h3>
-                    <p class="text-gray-400 mb-4 text-center">
-                        Experts en détection de fuites d'eau pour particuliers, professionnels et collectivités à Marseille et région PACA.
-                    </p>
+                    <p class="mb-4 text-gray-400 text-center">Experts en détection de fuites d'eau pour particuliers, professionnels et collectivités dans la région PACA.</p>
 
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Services Marseille</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Détection fuites particuliers</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Détection fuites professionnels</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Urgences 24/7</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Devis gratuit</a></li>
+                    <h3 class="text-lg font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Détection fuites particuliers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Recherche fuites professionnels</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Détection fuites collectivités</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Urgences 24/7</a></li>
+                        <li><a href="index.html#contact" class="text-gray-400 hover:text-white transition">Devis gratuit</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Technologies</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Caméra thermique</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Gaz traceur</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Écoute acoustique</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Endoscopie</a></li>
+                    <h3 class="text-lg font-bold mb-4">Zones d'intervention</h3>
+                    <ul class="space-y-2">
+                        <li><a href="marseille.html" class="text-gray-400 hover:text-white transition">Marseille</a></li>
+                        <li><a href="aix-en-provence.html" class="text-gray-400 hover:text-white transition">Aix-en-Provence</a></li>
+                        <li><a href="Toulon.html" class="text-gray-400 hover:text-white transition">Toulon</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Var</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Provence-Alpes-Côte d'Azur</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><i class="fas fa-phone mr-2"></i>06 23 77 78 01</li>
-                        <li><i class="fas fa-envelope mr-2"></i>alarecherchedelafuite@gmail.com</li>
-                        <li><i class="fas fa-map-marker-alt mr-2"></i>Marseille, PACA</li>
-                        <li><i class="fas fa-clock mr-2"></i>24h/24 et 7j/7</li>
+                    <h3 class="text-lg font-bold mb-4">Contact rapide</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2 text-gray-400"></i>
+                            <a href="tel:+33623777801" class="text-gray-400 hover:text-white transition">06 23 77 78 01</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-gray-400"></i>
+                            <a href="mailto:alarecherchedelafuite@gmail.com" class="text-gray-400 hover:text-white transition">alarecherchedelafuite@gmail.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-2 mt-1 text-gray-400"></i>
+                            <span class="text-gray-400">Bouches du Rhône & Var</span>
+                        </li>
                     </ul>
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 A LA RECHERCHE DE LA FUITE. Tous droits réservés. | 
-                <a href="index.html" class="hover:text-white transition-colors">Retour à l'accueil</a></p>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400 text-sm">
+                <p>© 2025 A LA RECHERCHE DE LA FUITE - Tous droits réservés | <a href="#" class="hover:text-white transition">Mentions légales</a> | <a href="#" class="hover:text-white transition">Politique de confidentialité</a></p>
             </div>
         </div>
     </footer>

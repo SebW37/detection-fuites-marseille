@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -318,9 +318,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         /* Application des variables de thème */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
+            background-color: var(--bg-primary) !important;
+            color: var(--text-primary) !important;
             transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Surcharge pour le mode clair - fond blanc */
+        [data-theme="light"] body {
+            background-color: #ffffff !important;
         }
         
         .gradient-bg {
@@ -628,9 +633,53 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         [data-theme="dark"] .gradient-bg {
             background: linear-gradient(135deg, var(--logo-dark-blue) 0%, var(--logo-blue) 50%, var(--logo-accent) 100%);
         }
+        
+        /* Forcer les backgrounds des sections principales en mode sombre */
+        [data-theme="dark"] body {
+            background-color: var(--bg-primary) !important;
+            color: var(--text-primary) !important;
+        }
+        
+        [data-theme="dark"] #accueil.bg-white {
+            background-color: var(--bg-primary) !important;
+        }
+        
+        [data-theme="dark"] #services.bg-gray-50 {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] #expertise.bg-white {
+            background-color: var(--bg-primary) !important;
+        }
+        
+        [data-theme="dark"] #temoignages.bg-gray-50 {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] #faq.bg-white {
+            background-color: var(--bg-primary) !important;
+        }
+        
+        [data-theme="dark"] #contact.bg-gray-50 {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        [data-theme="dark"] section.py-8.bg-gray-50 {
+            background-color: var(--bg-secondary) !important;
+        }
+        
+        /* Section Process en mode sombre */
+        [data-theme="dark"] section.gradient-bg {
+            background: linear-gradient(135deg, var(--logo-dark-blue) 0%, var(--logo-blue) 50%, var(--logo-accent) 100%) !important;
+        }
+        
+        /* Section CTA en mode sombre */
+        [data-theme="dark"] section.py-16.gradient-bg {
+            background: linear-gradient(135deg, var(--logo-dark-blue) 0%, var(--logo-blue) 50%, var(--logo-accent) 100%) !important;
+        }
     </style>
 </head>
-<body class="text-gray-800 bg-gray-50" data-theme="light">
+<body class="text-gray-800 bg-gray-50">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GLSS2VK"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

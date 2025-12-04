@@ -351,6 +351,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border: 1px solid rgba(0, 212, 255, 0.3);
         }
         
+        /* Style spécifique pour le bouton theme-toggle */
+        #theme-toggle {
+            background-color: #ffffff !important;
+            color: var(--logo-turquoise) !important;
+            min-width: 48px;
+            min-height: 48px;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        
+        #theme-toggle i {
+            color: var(--logo-turquoise) !important;
+            font-size: 1.25rem !important;
+        }
+        
+        #theme-toggle:hover {
+            background-color: rgba(0, 212, 255, 0.1) !important;
+        }
+        
+        [data-theme="dark"] #theme-toggle {
+            background-color: var(--card-bg) !important;
+        }
+        
+        [data-theme="dark"] #theme-toggle i {
+            color: var(--logo-turquoise) !important;
+        }
+        
         /* ============================================
            MODE SOMBRE - Styles spécifiques
            ============================================ */
@@ -617,8 +645,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a href="marseille.html" class="nav-link text-white hover:text-blue-200 transition">Marseille</a>
                 <a href="aix-en-provence.html" class="nav-link text-white hover:text-blue-200 transition">Aix-en-Provence</a>
                 <a href="toulon.html" class="nav-link text-white hover:text-blue-200 transition">Toulon</a>
-                <button id="theme-toggle" class="bg-white hover:bg-blue-50 font-bold py-2 px-4 rounded-full transition flex items-center justify-center w-14 h-14" title="Basculer le thème">
-                    <i class="fas fa-moon text-blue-600 text-xl" id="theme-icon"></i>
+                <button id="theme-toggle" class="font-bold py-2 px-4 rounded-full transition" title="Basculer le thème">
+                    <i class="fas fa-moon" id="theme-icon"></i>
                 </button>
                 <a href="index.html#contact" class="bg-white text-blue-600 hover:bg-blue-50 font-bold py-2 px-6 rounded-full transition">Contact</a>
             </nav>
@@ -1409,10 +1437,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             // Fonction pour mettre à jour les icônes
             function updateIcons(theme) {
                 if (theme === 'dark') {
-                    themeIcon.className = 'fas fa-sun text-blue-600 text-xl';
+                    themeIcon.className = 'fas fa-sun';
                     themeIconMobile.className = 'fas fa-sun mr-2';
                 } else {
-                    themeIcon.className = 'fas fa-moon text-blue-600 text-xl';
+                    themeIcon.className = 'fas fa-moon';
                     themeIconMobile.className = 'fas fa-moon mr-2';
                 }
             }

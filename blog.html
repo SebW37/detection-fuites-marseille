@@ -352,9 +352,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         
         /* Style spécifique pour le bouton theme-toggle */
-        #theme-toggle {
+        button#theme-toggle {
             background-color: #ffffff !important;
-            color: var(--logo-turquoise) !important;
             min-width: 48px;
             min-height: 48px;
             display: flex !important;
@@ -362,21 +361,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             justify-content: center !important;
         }
         
-        #theme-toggle i {
-            color: var(--logo-turquoise) !important;
+        /* Forcer la visibilité de l'icône dans le bouton theme-toggle */
+        button#theme-toggle i,
+        button#theme-toggle i.fas,
+        button#theme-toggle #theme-icon,
+        button.text-blue-600#theme-toggle i {
+            color: #0096c7 !important;
             font-size: 1.25rem !important;
+            display: inline-block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            width: auto !important;
+            height: auto !important;
+            line-height: 1 !important;
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
         }
         
-        #theme-toggle:hover {
+        button#theme-toggle:hover {
             background-color: rgba(0, 212, 255, 0.1) !important;
         }
         
-        [data-theme="dark"] #theme-toggle {
+        button#theme-toggle:hover i {
+            color: #0077a3 !important;
+        }
+        
+        [data-theme="dark"] button#theme-toggle {
             background-color: var(--card-bg) !important;
         }
         
-        [data-theme="dark"] #theme-toggle i {
-            color: var(--logo-turquoise) !important;
+        [data-theme="dark"] button#theme-toggle i {
+            color: #00d4ff !important;
         }
         
         /* ============================================

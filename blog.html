@@ -918,7 +918,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <li><a href="#" class="text-gray-400 hover:text-white transition">Recherche fuites professionnels</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition">Détection fuites collectivités</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition">Urgences 24/7</a></li>
-                        <li><a href="index.html#contact" class="text-gray-400 hover:text-white transition">Devis gratuit</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Devis gratuit</a></li>
                     </ul>
                 </div>
                 
@@ -1371,11 +1371,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             // Fonction pour mettre à jour les icônes
             function updateIcons(theme) {
                 if (theme === 'dark') {
-                    if (themeIcon) themeIcon.className = 'fas fa-sun';
-                    if (themeIconMobile) themeIconMobile.className = 'fas fa-sun mr-2';
+                    themeIcon.className = 'fas fa-sun';
+                    themeIconMobile.className = 'fas fa-sun mr-2';
                 } else {
-                    if (themeIcon) themeIcon.className = 'fas fa-moon';
-                    if (themeIconMobile) themeIconMobile.className = 'fas fa-moon mr-2';
+                    themeIcon.className = 'fas fa-moon';
+                    themeIconMobile.className = 'fas fa-moon mr-2';
                 }
             }
             

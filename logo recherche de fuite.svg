@@ -7,7 +7,7 @@
    viewBox="0 0 1236.0878 1246.9586"
    sodipodi:docname="logo recherche de fuite.svg"
    inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
-   inkscape:export-filename="C:\Users\seb13\OneDrive\Documents\Boulot Seb\A LA RECHERCHE DE FUITE\Logo.png"
+   inkscape:export-filename="Logo.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -57,7 +57,7 @@
      showgrid="false"
      inkscape:zoom="0.534375"
      inkscape:cx="705.49708"
-     inkscape:cy="498.71345"
+     inkscape:cy="496.84211"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
@@ -68,13 +68,20 @@
      fit-margin-bottom="0"
      inkscape:document-rotation="0"
      inkscape:showpageshadow="2"
-     inkscape:pagecheckerboard="0"
+     inkscape:pagecheckerboard="true"
      inkscape:deskcolor="#d1d1d1" />
   <g
      inkscape:groupmode="layer"
      inkscape:label="Image"
      id="g18"
      transform="translate(2.1930316,26.414772)">
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke-width:1.99346;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       id="path3"
+       cx="617.22217"
+       cy="600.4859"
+       rx="617.54382"
+       ry="620.40015" />
     <g
        id="g1"
        inkscape:export-filename="Logo.png"
@@ -105,5 +112,12 @@
          rx="617.46295"
          ry="622.89838" />
     </g>
+    <ellipse
+       style="fill:none;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       id="path2"
+       cx="578.85956"
+       cy="553.70215"
+       rx="571.69592"
+       ry="529.59064" />
   </g>
 </svg>
